@@ -1,0 +1,10 @@
+Soy el fichero1 y estamos casi de vacaciones
+Soy el fichero1 y estamos casi de vacaciones
+Soy el fichero1 y estamos casi de vacaciones
+LineaErronea
+LINEA ERRONEA
+3
+LINEA ERRONEA
+2
+LINEA ERRONEA
+1
