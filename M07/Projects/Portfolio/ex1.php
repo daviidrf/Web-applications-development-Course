@@ -2,7 +2,7 @@
 require_once 'functions.php';
 header_nav("Exercici 1");
 ?>
-<div class="mx-auto" style="text-align: center;" id="formulario">
+<div class="mx-auto" style="text-align: center; margin-top:8rem;" id="formulario">
   <h1>TABLA DE MULTIPLICAR</h1>
   <form action="ex1.php" method="post" style="margin-bottom: 2rem;">
     <label style="margin-bottom: 10px;">Escribe un número entre 0 y 20 :</label>
@@ -42,6 +42,10 @@ header_nav("Exercici 1");
   }
   ?>
 </div>
+
+<?php
+    jvCharge();
+?>
 </body>
 
 </html>

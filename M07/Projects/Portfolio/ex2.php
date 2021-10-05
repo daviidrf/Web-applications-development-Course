@@ -2,7 +2,7 @@
 require_once 'functions.php';
 header_nav("Exercici 2");
 ?>
-<div class="mx-auto" style="text-align: center;" id="formulario">
+<div class="mx-auto" style="text-align: center;margin-top:8rem;" id="formulario">
     <h1>VERIFICADOR DE DNI</h1>
     <form action="ex2.php" method="post" style="margin-bottom: 2rem;">
         <label style="margin-bottom: 10px;">Escribe un DNI :</label>
@@ -25,6 +25,10 @@ header_nav("Exercici 2");
     }
     ?>
 </div>
+
+<?php
+    jvCharge();
+?>
 </body>
 
 </html>

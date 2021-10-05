@@ -2,7 +2,7 @@
 require_once 'functions.php';
 header_nav("Exercici 3");
 ?>
-<div class="mx-auto" style="text-align: center;" id="formulario">
+<div class="mx-auto" style="text-align: center;margin-top:8rem;" id="formulario">
     <h1>VERIFICAR PALINDROMO</h1>
     <form action="ex3.php" method="post" style="margin-bottom: 2rem;">
         <label style="margin-bottom: 10px;">Escribe una frase o palabra :</label>
@@ -27,7 +27,9 @@ header_nav("Exercici 3");
     }
     ?>
 </div>
-
+<?php
+    jvCharge();
+?>
 </body>
 
 </html>
