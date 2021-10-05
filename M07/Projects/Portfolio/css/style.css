@@ -121,9 +121,9 @@ section {
   	background-size: cover;
 }
 
-#header {
-	/* height: 98px; */
-}
+/*#header {
+	height: 98px; 
+}*/
 
 
 /* ===== Begin text colors ===== */
@@ -168,20 +168,20 @@ section {
 	transition: all 0.2s ease-in-out;
 }
 .navbar-default .navbar-brand {
-	background-image: url(../img/logod.png);
-	background-size: cover;
+	background-image: url(../img/logoSithM.png);
+	background-size: contain;
 }
 .navbar-shrink .navbar-brand {
-	background-image: url(../img/logod.png);
-	background-size: cover;
+	background-image: url(../img/logoSithM.png);
+	background-size: contain;
 }
 .navbar-transparent .navbar-brand {
-	background-image: url(../img/logod.png);
-	background-size: cover;
+	background-image: url(../img/logoSithM.png);
+	background-size: contain;
 }
 .navbar-inverse .navbar-brand {
-	background-image: url(../img/logod.png);
-	background-size: cover;
+	background-image: url(../img/logoSithM.png);
+	background-size: contain;
 }
 
 /* Navbar links */
@@ -240,8 +240,8 @@ section {
 .navbar-shrink .navbar-brand {
 	font-size: 20px;
 }
-.navbar-default.navbar-fixed-top.navbar-shrink .container {
-}
+/*.navbar-default.navbar-fixed-top.navbar-shrink .container {
+}*/
 .navbar-fixed-top.navbar-shrink .container {
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
@@ -324,7 +324,7 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
 	margin-bottom: 15px;
 	margin-right: 25px;
 	margin-top: 10px;
-	float:left;
+	/*float:left;*/
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
@@ -422,8 +422,8 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
 
 
 /* ===== Begin progress bar ===== */
-.skill-bar {
-}
+/*.skill-bar {
+}*/
 .progress {
 	overflow: visible;
 	height: 25px;
@@ -508,10 +508,10 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
 
 
 /* ===== Begin Portfolio===== */
-.portfolio_area{}
+/*.portfolio_area{}
 .portfolio{}
 .portfoloi_top{}
-.portfoloi_content_area{}
+.portfoloi_content_area{}*/
 .portfolio_menu{
 	text-align: center;
 	overflow: hidden;
@@ -534,7 +534,7 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
     text-decoration: none;
     text-transform: uppercase;
 }
-.portfolio_content{}
+/*.portfolio_content{}*/
 .portfolio_single_content{
 	position: relative;
 	top: 0;
@@ -618,7 +618,7 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
 	padding: 0;
 	text-transform: uppercase;
 }
-.portfolio_content{}
+/*.portfolio_content{}*/
 .portfolio_content{
     margin-top: 36px;
     overflow: hidden;
@@ -635,8 +635,8 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
 .counter-up .cover {
 	background-color: rgba(0, 7, 11, 0.8);
 }
-.counter-up .fact {
-}
+/*.counter-up .fact {
+}*/
 .counter-up .fact.last {
 	border-right: none;
 }
@@ -737,8 +737,8 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
 
 
 /* ===== Begin panels ===== */
-.panel, .panel-heading, .panel-footer  {
-}
+/*.panel, .panel-heading, .panel-footer  {
+}*/
 /* ===== End panels ===== */
 
 /* ===== Begin prices ===== */

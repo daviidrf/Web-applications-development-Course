@@ -11,10 +11,7 @@ function header_nav($title)
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>$title</title>
-      <link  rel="icon"   href="img/logoIcono.ico" type="image/ico" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <link href="styles.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+      <link  rel="icon"   href="img/logoSithM.png" type="image/png" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
 
@@ -45,6 +42,8 @@ function header_nav($title)
         <!-- <link rel="stylesheet" href="css/skin/summer-orange.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/fresh-lime.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/night-purple.css"> -->
+
+        <link href="styles.css" rel="stylesheet">
       </head>
 
 
@@ -69,19 +68,15 @@ function header_nav($title)
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand page-scroll" href="index.html">Unika</a>
+                    <a class="navbar-brand page-scroll" href="index.php">David</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="page-scroll" href="body">Home</a></li>
-                        <li><a class="page-scroll" href="#about-section">About</a></li>
-                        <li><a class="page-scroll" href="#services-section">Services</a></li>
-                        <li><a class="page-scroll" href="#portfolio-section">Works</a></li>
-                        <li><a class="page-scroll" href="#team-section">Team</a></li>
-                        <li><a class="page-scroll" href="#prices-section">Prices</a></li>
-                        <li><a class="page-scroll" href="#contact-section">Contact</a></li>
+                        <li><a class="page-scroll" href="index.php">Inicio</a></li>
+                        <li><a class="page-scroll" href="index.php#about-section">Practicas</a></li>
+                        <li><a class="page-scroll" href="index.php#redes">Redes</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
