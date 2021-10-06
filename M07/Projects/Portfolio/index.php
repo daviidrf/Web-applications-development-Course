@@ -115,7 +115,7 @@ header_nav("Inicio");
                 </div>
 
                 <div class="col-md-3 col-sm-6">
-                    <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.6s">
+                    <a href="ex4.php" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.6s">
                         <span class="rotate-box-icon"><i class="fab fa-galactic-republic"></i></span>
                         <div class="rotate-box-info">
                             <h4>PRACTICA 4</h4>
