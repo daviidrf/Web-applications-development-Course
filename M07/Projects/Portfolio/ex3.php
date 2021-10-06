@@ -6,7 +6,7 @@ header_nav("Exercici 3");
     <h1>VERIFICAR PALINDROMO</h1>
     <form action="ex3.php" method="post" style="margin-bottom: 2rem;">
         <label style="margin-bottom: 10px;">Escribe una frase o palabra :</label>
-        <input type="text" name="quote" class="form-control col-6 mx-auto" placeholder="Quote" style="width: 15rem;">
+        <input type="text" name="quote" class="form-control col-6" placeholder="Quote" style="width: 15rem; margin: 0 auto;">
         <input type="submit" name="verificar" value="Verificar" class="btn btn-primary" style="margin-top: 10px;">
     </form>
 

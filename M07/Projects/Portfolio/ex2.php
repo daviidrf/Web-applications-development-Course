@@ -6,7 +6,7 @@ header_nav("Exercici 2");
     <h1>VERIFICADOR DE DNI</h1>
     <form action="ex2.php" method="post" style="margin-bottom: 2rem;">
         <label style="margin-bottom: 10px;">Escribe un DNI :</label>
-        <input type="text" name="DNI" class="form-control col-6 mx-auto" placeholder="DNI" style="width: 9rem;">
+        <input type="text" name="DNI" class="form-control col-6 mx-auto" placeholder="DNI" style="width: 9rem; margin: 0 auto;">
         <input type="submit" name="verifica" value="Verifica" class="btn btn-primary" style="margin-top: 10px;">
     </form>
 

@@ -145,24 +145,14 @@ header_nav("Inicio");
                     <p class="subtitle" style="margin-bottom: 20px;">Dejo adjuntado mi GitHub y Linkedin para ver más
                         proyectos e información.</p>
                     <ul class="social-list" id="redes" style="margin-left: 40px;">
-                        <li style="display: none;"> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn"
-                                data-wow-delay="0.3s"><span class="rotate-box-icon"><i
-                                        class="fa fa-facebook"></i></span></a></li>
-                        <li style="display: none;"> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn"
-                                data-wow-delay="0.4s"><span class="rotate-box-icon"><i
-                                        class="fa fa-twitter"></i></span></a></li>
+                        
                         <li> <a href="https://www.linkedin.com/in/davidrodfel/"
                                 class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.5s"><span
                                     class="rotate-box-icon"><i class="fab fa-linkedin-in"></i></span></a></li>
                         <li> <a href="https://github.com/daviidrf"
                                 class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.6s"><span
                                     class="rotate-box-icon"><i class="fab fa-github"></i></span></a></li>
-                        <li style="display: none;"> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn"
-                                data-wow-delay="0.7s"><span class="rotate-box-icon"><i
-                                        class="fa fa-tumblr"></i></span></a></li>
-                        <li style="display: none;"> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn"
-                                data-wow-delay="0.8s"><span class="rotate-box-icon"><i
-                                        class="fa fa-dribbble"></i></span></a></li>
+                        
                     </ul>
                 </div>
             </div> <!-- /.row -->

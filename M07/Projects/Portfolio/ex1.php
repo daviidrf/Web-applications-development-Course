@@ -6,7 +6,7 @@ header_nav("Exercici 1");
   <h1>TABLA DE MULTIPLICAR</h1>
   <form action="ex1.php" method="post" style="margin-bottom: 2rem;">
     <label style="margin-bottom: 10px;">Escribe un número entre 0 y 20 :</label>
-    <input type="text" name="numero" class="form-control col-6 mx-auto" placeholder="Numero" style="width: 9rem;">
+    <input type="text" name="numero" class="form-control col-6 mx-auto" placeholder="Numero" style="width: 9rem; margin: 0 auto;">
     <input type="submit" name="calcula" value="Calcula las tablas" class="btn btn-primary" style="margin-top: 10px;">
   </form>
 
