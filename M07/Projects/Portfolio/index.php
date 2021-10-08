@@ -119,8 +119,8 @@ header_nav("Inicio");
                         <span class="rotate-box-icon"><i class="fab fa-galactic-republic"></i></span>
                         <div class="rotate-box-info">
                             <h4>PRACTICA 4</h4>
-                            <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do
-                                eiusmod tempor incidist.</p>
+                            <p>Formulario, el usuario introduce los valores pedidos en cada campo y "PHP" funciona de
+                                 validados de cada dato.</p>
                         </div>
                     </a>
                 </div>

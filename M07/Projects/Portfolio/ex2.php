@@ -16,7 +16,8 @@ header_nav("Exercici 2");
     <?php
     $dni = $_POST['DNI'];
     $abc = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
-
+    $dni = strtoupper($dni);
+    
     //CON "strlen" CALCULAMOS LA LONGITUD DEL STRING.
     if (strlen($dni) == 9) {
         if ($abc[substr($dni, 0, 8) % 23] == substr($dni, 8)) {
