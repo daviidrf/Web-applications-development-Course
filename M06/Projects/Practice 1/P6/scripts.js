@@ -1,7 +1,12 @@
-var colors = ["green_1", "green_2", "red_1", "red_2", "yellow_1",
-    "yellow_2", "blue_1", "blue_2", "black_1", "black_2",
-    "brown_1", "brown_2", "orange_1", "orange_2", "purple_1",
-    "purple_2"];
+// var colors = ["green_1", "green_2", "red_1", "red_2", "yellow_1",
+//     "yellow_2", "blue_1", "blue_2", "black_1", "black_2",
+//     "brown_1", "brown_2", "orange_1", "orange_2", "purple_1",
+//     "purple_2"];
+
+var colors = ["green", "green", "red", "red", "yellow",
+    "yellow", "blue", "blue", "black", "black",
+    "brown", "brown", "orange", "orange", "purple",
+    "purple"];
 colors = order(colors);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -36,6 +41,7 @@ function generarMemorama() {
         document.getElementById("resultado").appendChild(fila);
         for (let col = 0; col < 4; col++) {
             let casilla = document.createElement("div");
+            casilla.setAttribute('id', colorNum + ' col-3 casilla');
             casilla.setAttribute('class', colors[colorNum] + ' col-3 casilla');
             casilla.setAttribute('style', 'border: 2px solid black; width:140px; height:140px;');
             document.getElementById("row" + row).appendChild(casilla);
@@ -46,19 +52,16 @@ function generarMemorama() {
 }
 
 function changeColor(e) {
+    let juego = document.getElementById("resultado");
     let colorNum = 0;
-
-    var colorsTag = new Array(colors.length);
     for (let i = 0; i < colors.length; i++) {
-        colorsTag.push(colors[i].split('_')[0]);
+        console.log(colors[i]);
+        console.log(e.target);
     }
-    for(let i = 0; i <= colorsTag.length; i++){
-        console.log(colorsTag[i]);
-      }
 
     for (let row = 0; row < 4; row++) {
         for (let col = 0; col < 4; col++) {
-            e.target.style.backgroundColor = colorsTag[colorNum];
+            //e.target.style.backgroundColor = colors[colorNum];
             colorNum++;
         }
     }
