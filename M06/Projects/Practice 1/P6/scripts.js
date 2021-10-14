@@ -29,7 +29,6 @@ function generar() {
 
 function generarMemorama() {
     let colorNum = 0;
-
     for (let row = 0; row < 4; row++) {
         let fila = document.createElement("div");
         fila.setAttribute('id', 'row' + row);
@@ -38,7 +37,7 @@ function generarMemorama() {
         for (let col = 0; col < 4; col++) {
             let casilla = document.createElement("div");
             casilla.setAttribute('class', colors[colorNum] + ' col-3 casilla');
-            casilla.setAttribute('style', 'border: 2px solid black; width:140px; height:140px; margin: 4px;');
+            casilla.setAttribute('style', 'border: 2px solid black; width:140px; height:140px;');
             document.getElementById("row" + row).appendChild(casilla);
             colorNum++;
         }
@@ -46,7 +45,23 @@ function generarMemorama() {
     }
 }
 
-function changeColor(){
+function changeColor(e) {
+    let colorNum = 0;
+
+    var colorsTag = new Array(colors.length);
+    for (let i = 0; i < colors.length; i++) {
+        colorsTag.push(colors[i].split('_')[0]);
+    }
+    for(let i = 0; i <= colorsTag.length; i++){
+        console.log(colorsTag[i]);
+      }
+
+    for (let row = 0; row < 4; row++) {
+        for (let col = 0; col < 4; col++) {
+            e.target.style.backgroundColor = colorsTag[colorNum];
+            colorNum++;
+        }
+    }
 }
 
 function order(colors) {
