@@ -18,8 +18,7 @@ header_nav("Inicio");
 <!-- Begin testimonials -->
 <div class="extra-space-l"></div>
 <section id="testimonial-section">
-    <div id="testimonial-trigger" class="testimonial text-white parallax" data-stellar-background-ratio="0.5"
-        style="background-image: url(img/space.png); background-size: contain;">
+    <div id="testimonial-trigger" class="testimonial text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/space.png); background-size: contain;">
         <div class="cover"></div>
         <!-- Begin page header-->
         <div class="page-header-wrapper">
@@ -120,11 +119,24 @@ header_nav("Inicio");
                         <div class="rotate-box-info">
                             <h4>PRACTICA 4</h4>
                             <p>Formulario, el usuario introduce los valores pedidos en cada campo y "PHP" funciona de
-                                 validados de cada dato.</p>
+                                validador de cada dato.</p>
                         </div>
                     </a>
                 </div>
             </div> <!-- /.row -->
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="ex5.php" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.6s">
+                        <span class="rotate-box-icon"><i class="fab fa-galactic-republic"></i></span>
+                        <div class="rotate-box-info">
+                            <h4>PRACTICA 5</h4>
+                            <p>Contador, el usuario introduce un número entero entre 1-8 y
+                                se muestra una tabla con tantas filas, en cada casilla habrá una checkbox.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div> <!-- /.container -->
     </div>
     <!-- End PRACTICAS -->
@@ -145,14 +157,10 @@ header_nav("Inicio");
                     <p class="subtitle" style="margin-bottom: 20px;">Dejo adjuntado mi GitHub y Linkedin para ver más
                         proyectos e información.</p>
                     <ul class="social-list" id="redes" style="margin-left: 40px;">
-                        
-                        <li> <a href="https://www.linkedin.com/in/davidrodfel/"
-                                class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.5s"><span
-                                    class="rotate-box-icon"><i class="fab fa-linkedin-in"></i></span></a></li>
-                        <li> <a href="https://github.com/daviidrf"
-                                class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.6s"><span
-                                    class="rotate-box-icon"><i class="fab fa-github"></i></span></a></li>
-                        
+
+                        <li> <a href="https://www.linkedin.com/in/davidrodfel/" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.5s"><span class="rotate-box-icon"><i class="fab fa-linkedin-in"></i></span></a></li>
+                        <li> <a href="https://github.com/daviidrf" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.6s"><span class="rotate-box-icon"><i class="fab fa-github"></i></span></a></li>
+
                     </ul>
                 </div>
             </div> <!-- /.row -->
@@ -161,9 +169,7 @@ header_nav("Inicio");
 
     <div class="footer">
         <div class="container text-center wow fadeIn centrarX" data-wow-delay="0.4s">
-            <p class="copyright">Copyright &copy; 2021 - Designed By <a href="https://www.behance.net/poljakova"
-                    class="theme-author">David Rodriguez</a> &amp; Developed by <a href="http://www.imransdesign.com/"
-                    class="theme-author">David Rodriguez</a></p>
+            <p class="copyright">Copyright &copy; 2021 - Designed By <a href="https://www.behance.net/poljakova" class="theme-author">David Rodriguez</a> &amp; Developed by <a href="http://www.imransdesign.com/" class="theme-author">David Rodriguez</a></p>
         </div>
     </div>
 
