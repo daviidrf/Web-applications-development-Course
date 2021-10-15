@@ -4,7 +4,7 @@
     justify-content: center;
     margin-top: 10%;
     text-align: center;
-    width: 500px;
+    width: 560px;
 }
 #formulari{
     margin: 0 auto;
@@ -25,31 +25,31 @@
 }
 
 
-.green_1, .green_2{
+.green{
     background-color: green;
 }
-.blue_1, .blue_2{
+.blue{
     background-color: blue;
 }
-.red_1, .red_2{
+.red{
     background-color: red;
 }
-.purple_1, .purple_2{
+.purple{
     background-color: purple;
 }
-.orange_1, .orange_2{
-    background-color: orange;
+.orange{
+    background-color:orangered;
 }
-.black_1, .black_2{
+.black{
     background-color: black;
 }
-.brown_1, .brown_2{
-    background-color: brown;
+.brown{
+    background-color: chocolate;
 }
-.yellow_1, .yellow_2{
+.yellow{
     background-color: yellow;
 }
 
-.casilla{
+.default{
     background-color: gray;
 }

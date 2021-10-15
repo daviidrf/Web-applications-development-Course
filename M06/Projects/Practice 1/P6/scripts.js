@@ -41,8 +41,8 @@ function generarMemorama() {
         document.getElementById("resultado").appendChild(fila);
         for (let col = 0; col < 4; col++) {
             let casilla = document.createElement("div");
-            casilla.setAttribute('id', colorNum + ' col-3 casilla');
-            casilla.setAttribute('class', colors[colorNum] + ' col-3 casilla');
+            casilla.setAttribute('id', colorNum);
+            casilla.setAttribute('class', colors[colorNum] + ' col-3 default');
             casilla.setAttribute('style', 'border: 2px solid black; width:140px; height:140px;');
             document.getElementById("row" + row).appendChild(casilla);
             colorNum++;
@@ -52,19 +52,12 @@ function generarMemorama() {
 }
 
 function changeColor(e) {
-    let juego = document.getElementById("resultado");
-    let colorNum = 0;
+    
     for (let i = 0; i < colors.length; i++) {
         console.log(colors[i]);
         console.log(e.target);
     }
-
-    for (let row = 0; row < 4; row++) {
-        for (let col = 0; col < 4; col++) {
-            //e.target.style.backgroundColor = colors[colorNum];
-            colorNum++;
-        }
-    }
+    e.target.classList.remove("default");
 }
 
 function order(colors) {

@@ -136,6 +136,28 @@ header_nav("Inicio");
                         </div>
                     </a>
                 </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="ex5.php" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.6s">
+                        <span class="rotate-box-icon"><i class="fab fa-galactic-republic"></i></span>
+                        <div class="rotate-box-info">
+                            <h4>PRACTICA 6</h4>
+                            <p>Contador, el usuario introduce un número entero entre 1-8 y
+                                se muestra una tabla con tantas filas, en cada casilla habrá una checkbox.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="enquestes.php" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.6s">
+                        <span class="rotate-box-icon"><i class="fab fa-galactic-republic"></i></span>
+                        <div class="rotate-box-info">
+                            <h4>PRACTICA EVALUABLE 1</h4>
+                            <p>Contador, el usuario introduce un número entero entre 1-8 y
+                                se muestra una tabla con tantas filas, en cada casilla habrá una checkbox.
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div> <!-- /.container -->
     </div>
