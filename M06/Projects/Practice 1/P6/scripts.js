@@ -1,19 +1,24 @@
-// var colors = ["green_1", "green_2", "red_1", "red_2", "yellow_1",
-//     "yellow_2", "blue_1", "blue_2", "black_1", "black_2",
-//     "brown_1", "brown_2", "orange_1", "orange_2", "purple_1",
-//     "purple_2"];
-
 var colors = ["green", "green", "red", "red", "yellow",
-    "yellow", "blue", "blue", "black", "black",
-    "brown", "brown", "orange", "orange", "purple",
+    "yellow", "blue", "blue", "fucsia", "fucsia",
+    "pink", "pink", "turquesa", "turquesa", "purple",
     "purple"];
 colors = order(colors);
+
+var jugada1;
+var jugada1ID;
+var aciertos = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("submit", generar);
     let juego = document.getElementById("resultado");
-    juego.addEventListener("click", changeColor);
+
+    //juego.addEventListener("click", showFirstCase);
+    juego.addEventListener("click", provepair);
+
+
+
+
 }, false);
 
 function generar() {
@@ -43,7 +48,7 @@ function generarMemorama() {
             let casilla = document.createElement("div");
             casilla.setAttribute('id', colorNum);
             casilla.setAttribute('class', colors[colorNum] + ' col-3 default');
-            casilla.setAttribute('style', 'border: 2px solid black; width:140px; height:140px;');
+            casilla.setAttribute('style', 'border: 2px solid gray; width:140px; height:140px;');
             document.getElementById("row" + row).appendChild(casilla);
             colorNum++;
         }
@@ -51,13 +56,66 @@ function generarMemorama() {
     }
 }
 
-function changeColor(e) {
-    
-    for (let i = 0; i < colors.length; i++) {
-        console.log(colors[i]);
-        console.log(e.target);
-    }
+function showFirstCase(e) {
+    jugada1 = e.target.classList;
+    jugada1ID = e.target.id;
+
     e.target.classList.remove("default");
+
+    console.log(jugada1[0]);
+    console.log(jugada1ID);
+}
+
+function provepair(e) {
+    var jugada2;
+    var jugada2ID;
+
+    jugada1 = e.target.classList;
+    jugada1ID = e.target.id;
+
+    jugada2 = e.target.classList;
+    jugada2ID = e.target.id;
+
+    console.log(jugada1[0]);
+    console.log(jugada1ID);
+
+    console.log(jugada2[0]);
+    console.log(jugada2ID);
+
+
+
+
+
+
+
+    // for (let i = 0; i < colors.length; i++) {
+    //     //console.log(colors[i]);
+    //     //console.log(e.target);
+    // }
+
+    // var arrayClases = [16];
+    // for (let i = 0; i < 8; i++) {
+
+    //     for (let j = 0; j < 2; j++) {
+    //         casilla1 = e.currentTarget.classList;
+    //         console.log(casilla1[0]);
+    //         casilla2 = e.currentTarget.classList;
+    //         console.log(casilla2[0]);
+    //     }
+    //arrayClases[i] = e.target.classList;
+
+    //console.log(arrayClases[i][0]);
+    //}
+    // for (let i = 0; i < arrayClases.length; i++) {
+    //     const element = array[index];
+
+    // }
+
+    //console.log(arrayClases.classList);
+
+
+
+    //e.target.classList.remove("default");
 }
 
 function order(colors) {

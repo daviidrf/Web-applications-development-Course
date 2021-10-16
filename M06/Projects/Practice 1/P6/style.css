@@ -37,19 +37,19 @@
 .purple{
     background-color: purple;
 }
-.orange{
-    background-color:orangered;
+.turquesa{
+    background-color:turquoise;
 }
-.black{
-    background-color: black;
+.fucsia{
+    background-color: mediumvioletred;
 }
-.brown{
-    background-color: chocolate;
+.pink{
+    background-color: pink;
 }
 .yellow{
     background-color: yellow;
 }
 
 .default{
-    background-color: gray;
+    background-color: rgb(37, 37, 37);
 }
