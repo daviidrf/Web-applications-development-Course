@@ -541,13 +541,13 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
 	overflow:hidden;
 	
 }
-.portfolio_single_content:hover img{
+/* .portfolio_single_content:hover img{
 	 -o-transform: scale(2);
 	 -webkit-transform: scale(2);
 	 -moz-transform: scale(2);
 	 -ms-transform: scale(2);
 	 transform: scale(2);
-}
+} */
 .portfolio_single_content img{
 	width: 100%;
 	position: relative;
