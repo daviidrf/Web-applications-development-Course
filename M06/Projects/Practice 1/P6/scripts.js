@@ -54,9 +54,9 @@ function generarMemorama() {
         }
 
     }
-    let marcador = document.createElement("div");
-    marcador.innerHTML = "<p>Aciertos: " + aciertos + "/8</p>"
-    resultado.insertBefore(marcador, resultado);
+    // let marcador = document.createElement("div");
+    // marcador.innerHTML = "<p>Aciertos: " + aciertos + "/8</p>"
+    // document.body.insertBefore(marcador, resultado);
 }
 
 //This function validate the card pairs and hide or show them.
