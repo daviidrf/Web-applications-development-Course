@@ -37,6 +37,7 @@ function generar() {
 //This function generate the Memoram in the HTML file.
 function generarMemorama() {
     let resultado = document.getElementById("resultado");
+    let padreResultado = document.getElementById("showResult");
 
     let colorNum = 0;
     for (let row = 0; row < 4; row++) {
@@ -54,9 +55,11 @@ function generarMemorama() {
         }
 
     }
-    // let marcador = document.createElement("div");
-    // marcador.innerHTML = "<p>Aciertos: " + aciertos + "/8</p>"
-    // document.body.insertBefore(marcador, resultado);
+    let marcador = document.createElement("div");
+    marcador.setAttribute('id', 'marcador');
+    marcador.innerHTML = "<p>Aciertos: " + aciertos + "/8</p>"
+    console.log(marcador);
+    padreResultado.insertBefore(marcador, padreResultado.childNodes[0]);
 }
 
 //This function validate the card pairs and hide or show them.
@@ -88,8 +91,24 @@ function makePair(e) {
                 }, 800);
 
             }
-            else {
+            else if (seleccion1[0] == seleccion2[0]) {
                 aciertos++;
+                //We delete the dom element and place the new one with the value "aciertos" updated.
+                let marcadorDiv = document.getElementById("marcador");
+                marcadorDiv.parentNode.removeChild(marcadorDiv);
+
+                let padreResultado = document.getElementById("showResult");
+                let marcador = document.createElement("div");
+
+                if (aciertos < 8) {
+                    marcador.setAttribute('id', 'marcador');
+                    marcador.innerHTML = "<p>Aciertos: " + aciertos + "/8</p>"
+                } else {
+                    marcador.setAttribute('id', 'vicder');
+                    marcador.innerHTML = "<h2>Has ganado!</h2>"
+                }
+                padreResultado.insertBefore(marcador, padreResultado.childNodes[0]);
+
             }
             contador = 0;
             console.log(aciertos);
