@@ -1,6 +1,6 @@
 <?php
 require_once 'functions.php';
-header_nav("PT AVALUABLE 1");
+header_nav("ENCUESTA");
 ?>
 <div class="mx-auto" style="text-align: center;margin-top:8rem;" id="formulario">
     <?php
@@ -8,7 +8,6 @@ header_nav("PT AVALUABLE 1");
     $codePattern =  '/^[A-Za-z0-9]{4,10}$/';
     $arrayCodigos = ["dA7vId", "j0RdI", "V1n1C1Us"];
     $arrayEncuestas = chargeArrayEncuestas();
-    $arrayRespuestas = chargeArrayRespuestas();
     $arrayLetras = chargeArrayLetras();
     $name = 0;
     //$introducedCode = codeReceived();
@@ -17,7 +16,7 @@ header_nav("PT AVALUABLE 1");
     if (preg_match($codePattern, $introducedCode)) {
         if (array_key_exists($introducedCode, $arrayEncuestas)) {
             $preguntas = explode(';', $arrayEncuestas[$introducedCode]);
-            $respuestasCorrectas = explode(';', $arrayRespuestas[$introducedCode]);
+            
             echo <<<HER
                 <form action="checkAnswers.php" method="post" style="text-align:left; margin-left: 10rem;">
             HER;
@@ -31,7 +30,7 @@ header_nav("PT AVALUABLE 1");
                     $respuestas = explode(':', $preguntas[$i]);
                     for ($j = 0; $j < sizeof($respuestas); $j++) {
                         echo <<<HER
-                            <input type="radio" class="" name="$name" value="$arrayLetras[$j]">
+                            <input type="radio" class="options" name="$name" value="$arrayLetras[$j]">
                             <label for="$arrayLetras[$j]">$respuestas[$j]</label><br>
                         HER;
                     }
@@ -40,10 +39,10 @@ header_nav("PT AVALUABLE 1");
             }
             echo <<<HER
                 <input type="submit" name="validar" value="Validar" class="btn btn-primary" style="margin-top: 10px;">
-                </form>
                 <div style="display: none;">
                     <input type="text" name="code" value="$introducedCode" class="btn btn-primary">
                 </div>
+                </form>
             HER;
         } else {
             echo <<<HER
