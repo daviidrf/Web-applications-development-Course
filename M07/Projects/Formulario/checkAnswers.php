@@ -1,6 +1,5 @@
 <?php
 require_once 'functions.php';
-require_once 'pdf/fpdf.php';
 header_nav("RESULTADO");
 ?>
 <div class="mx-auto" style="text-align: center;margin-top:8rem;" id="formulario">
@@ -30,12 +29,11 @@ header_nav("RESULTADO");
         <div id="fallos"><h3>Respuestas incorrectas : $fallos</h3></div>
     </div>
     <form action="generatePDF.php" method="post">
-        <input type="submit" name="convertir" value="Generar PDF" class="btn btn-primary" style="margin-top: 10px;">
         <div style="display: none;">
-            <input type="text" name="correctas" value="$correctas" class="btn btn-primary">
-            <input type="text" name="fallos" value="$fallos" class="btn btn-primary">
+            <input type="text" name="correctas" value="$correctas">
+            <input type="text" name="fallos" value="$fallos">
         </div>
-
+        <input type="submit" name="convertir" value="Generar PDF" class="btn btn-primary" style="margin-top: 10px;">
     </form>
     HER;
 
