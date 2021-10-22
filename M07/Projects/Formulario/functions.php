@@ -74,9 +74,9 @@ function header_nav($title)
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="page-scroll" href="index.php#testimonial-section">Inicio</a></li>
-                        <li><a class="page-scroll" href="index.php#about-section">Practicas</a></li>
-                        <li><a class="page-scroll" href="index.php#redes">Redes</a></li>
+                        <li><a class="page-scroll" href="index.php">Home</a></li>
+                        <li><a class="page-scroll" href="#">Login</a></li>
+                        <li><a class="page-scroll" href="#">Register</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
@@ -141,7 +141,6 @@ function chargeArrayEncuestas()
                         4- Quin d'aquests personatges forma part de l'Imperi galàctic?;Thrawn:Lando Calrissian:Hux:Capità Rex"
   );
 }
-
 
 function codeReceived()
 {

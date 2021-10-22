@@ -27,16 +27,10 @@ class PDF extends FPDF
     }
 }
 
-
-//$correctas = $_POST('test');
-//print_r($correctas);
-//$fallos = $_POST("fallos");
-
-//echo $correctas;
-//echo $fallos;
-
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial', 'B', 16);
-$pdf->Cell(40, 10, $_POST('correctas'));
+$pdf->Cell(40, 10,"RESULTADOS: ", 0, 1);
+$pdf->Cell(40, 10,"Numero de aciertos: " . $_POST['correctas'], 0, 1);
+$pdf->Cell(40, 10,"Numero de fallos: " . $_POST['fallos'], 0, 1);
 $pdf->Output();
