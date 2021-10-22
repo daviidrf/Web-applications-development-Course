@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    namePop.innerText = "Nombre: ";
-    eventoPop.innerText = "Evento seleccionado: ";
-    numTicketsPop.innerText = "Número de tickets: ";
-    precioTotalPop.innerText = "Precio Total: ";
+    // namePop.innerText = "Nombre: ";
+    // eventoPop.innerText = "Evento seleccionado: ";
+    // numTicketsPop.innerText = "Número de tickets: ";
+    // precioTotalPop.innerText = "Precio Total: ";
 }, false);

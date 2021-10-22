@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("popup").addEventListener("click", function () {
         let name = window.parent.document.getElementById("iframe1").contentWindow.document.getElementById("name").value;
-        let eventSelected = window.parent.document.getElementById("iframe1").contentWindow.document.getElementById("eventSelected").innerText;
+        let eventSelected = window.parent.document.getElementById("iframe1").contentWindow.document.getElementById("eventSelected").id;
         let numTickets = window.parent.document.getElementById("iframe1").contentWindow.document.getElementById("numTickets").value;
         let mostrarPrecio = document.getElementById("mostrarPrecio").innerText;
 
-        
+
 
         console.log(name);
         console.log(eventSelected);
@@ -15,7 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
         let estado = window.parent.document.getElementById("estadoText");
         estado.innerText = 'Tickets Reservados';
 
-        window.open("../popup/index.html","DATOS COMPLETOS","width=500,height=300");
+        let popup = window.open("../popup/index.html", "DATOS COMPLETOS", "width=500,height=300");
+
+        popup.addEventListener("DOMContentLoaded", function () {
+            popup.document.getElementById("namePop").innerText = "Nombre:" + name;
+            popup.document.getElementById("eventoPop").innerText = "Evento seleccionado: " + eventSelected;
+            popup.document.getElementById("numTicketsPop").innerText = "Número de tickets: " + numTickets;
+            popup.document.getElementById("precioTotalPop").innerText = "Precio Total: " + mostrarPrecio;
+        }, false);
 
 
         // popup.document.write("<p>Nombre: " + name + "</p>");
