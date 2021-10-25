@@ -127,7 +127,7 @@ function calcularErrores(name, surname, age) {
         document.getElementById("ageError").style.fontWeight = "bold";
     }
 
-    if (!validarAgeRango) {
+    if (!validarAgeRango()) {
         console.log("La edad tiene que ser mayor a 0!");
         check = false;
 
