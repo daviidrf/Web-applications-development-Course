@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+    <link rel="stylesheet" href="css/cookie.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <!--CLOCK STARTS-->
+    <header>
+        <div id="clock">
+            <div id="time">
+                <div>
+                    <span id="days">00</span>
+                    <span>Dia</span>
+                </div>
+                <div>
+                    <span id="months">00</span>
+                    <span>Mes</span>
+                </div>
+                <div>
+                    <span id="years">00</span>
+                    <span id="yearsS">Año</span>
+                </div>
+                <span id="separate">-</span>
+                <div>
+                    <span id="hours">00</span>
+                    <span>Hora</span>
+                </div>
+                <div>
+                    <span id="minutes">00</span>
+                    <span>Min</span>
+                </div>
+                <div>
+                    <span id="seconds">00</span>
+                    <span>Seg</span>
+                </div>
+                <div>
+                    <span id="phase">AM</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--CLOCK ENDS-->
+
+    <!--LOGIN STARTS-->
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">Login</h3>
+        </div>
+        <div class="card-body">
+            <form class="form" role="form" autocomplete="off" id="loginForm" novalidate="" method="POST">
+                <div class="form-group">
+                    <label for="uname1">Usuario</label>
+                    <input type="text" class="form-control" name="uname1" id="uname1" required="">
+                    <div class="invalid-feedback">Introduce tu usuario:</div>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" class="form-control" id="pwd1" required="" autocomplete="new-password">
+                    <div class="invalid-feedback">Introduce tu contrsaeña:</div>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Acceder</button>
+            </form>
+        </div>
+    </div>
+    <!--LOGIN ENDS-->
+
+    <!--COOKIES ALERT START-->
+    <div class="alert text-center cookiealert" role="alert">
+        <b>Acepta las cookies?</b> &#x1F36A; Si aceptas las cookies podrás logearte.
+
+        <button type="button" class="btn btn-primary btn-sm acceptcookies">
+            Acepto
+        </button>
+    </div>
+    <!--COOKIES ALERT ENDS-->
+
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+</body>
+
+</html>
