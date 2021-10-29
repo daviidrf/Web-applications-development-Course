@@ -43,6 +43,7 @@ function header_nav($title)
         <!-- <link rel="stylesheet" href="css/skin/night-purple.css"> -->
 
         <link href="css/stylesDavid.css" rel="stylesheet">
+        <link href="css/login.css" rel="stylesheet">
       </head>
 
 
@@ -74,8 +75,8 @@ function header_nav($title)
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="page-scroll" href="index.php">Home</a></li>
-                        <li><a class="page-scroll" href="#">Login</a></li>
-                        <li><a class="page-scroll" href="#">Register</a></li>
+                        <li><a class="page-scroll" href="login.php">Login</a></li>
+                        <li><a class="page-scroll" href="register.php">Register</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
