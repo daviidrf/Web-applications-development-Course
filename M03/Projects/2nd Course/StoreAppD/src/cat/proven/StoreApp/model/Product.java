@@ -1,5 +1,7 @@
 package cat.proven.StoreApp.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author David
@@ -72,8 +74,27 @@ public class Product {
         sb.append("\nCode --> ").append(code);
         sb.append("\nName --> ").append(name);
         sb.append("\nPrice --> ").append(price);
+        sb.append(" $");
         sb.append("\nStock --> ").append(stock);
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Product other = (Product) obj;
+        if (!Objects.equals(this.code, other.code)) {
+            return false;
+        }
+        return true;
     }
     
     
