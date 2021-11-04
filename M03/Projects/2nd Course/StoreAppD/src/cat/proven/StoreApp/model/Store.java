@@ -61,7 +61,7 @@ public class Store {
     /**
      * Removes a product from the products list.
      *
-     * @param remProd the product with the code to refrence the product to
+     * @param remProd the product with the code to reference the product to
      * remove.
      * @return true if its succesfully removed, false otherwise.
      */

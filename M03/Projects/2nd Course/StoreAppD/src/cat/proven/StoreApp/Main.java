@@ -114,9 +114,12 @@ public class Main {
 
         System.out.println("Number of products in the store: " + articles.size() + "\n");
 
+        System.out.println("------------------------------------");
+        System.out.printf("%4$4s %3$4s %2$4s %1$4s", "Code", "Name", "Price", "Stock");
+            System.out.println("\n------------------------------------");
+
         for (int i = 0; i < articles.size(); i++) {
-            System.out.print(i + 1 + ": ");
-            System.out.println(" " + articles.get(i).toString() + "\n");
+            System.out.println(articles.get(i).toString() + "\n");
         }
     }
 

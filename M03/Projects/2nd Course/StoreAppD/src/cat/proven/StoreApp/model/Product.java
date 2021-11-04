@@ -71,11 +71,7 @@ public class Product {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nCode --> ").append(code);
-        sb.append("\nName --> ").append(name);
-        sb.append("\nPrice --> ").append(price);
-        sb.append(" $");
-        sb.append("\nStock --> ").append(stock);
+        sb.append("   " + code + "   " + name + "   " + price + "$    " + stock);
         return sb.toString();
     }
 
