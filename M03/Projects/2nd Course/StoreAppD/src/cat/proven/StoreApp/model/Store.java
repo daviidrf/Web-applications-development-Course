@@ -80,5 +80,56 @@ public class Store {
         }
         return b;
     }
+    
+    
+    /**
+     * Search a Product in the list.
+     * 
+     * @param codeProd is the product to find.
+     * @return the product found.
+     */
+    public Product getProduct(Product codeProd) {
+        
+         if(codeProd != null){
+             if(products.contains(codeProd)){
+                 int index = products.indexOf(codeProd);
+                 if(index != -1){
+                     return products.get(index);
+                 }
+             }
+         }
+        return null;
+    }
+
+    public List<Product> getPbyStock(int stock) {
+         List<Product> articlesToReturn = new ArrayList<>();
+        
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getStock() < stock){
+                articlesToReturn.add(products.get(i));
+            }
+        }
+        return articlesToReturn;
+    }
+
+    public boolean modifyProduct(Product modProd) {
+        boolean b;
+
+        if (modProd != null) {
+            if (products.contains(modProd)) {
+                int index = products.indexOf(modProd);
+                if(index != -1){
+                    products.get(index).setName(modProd.getName());
+                    
+                }
+                b = true;
+            } else {
+                b = false;
+            }
+        } else {
+            b = false;
+        }
+        return b;
+    }
 
 }

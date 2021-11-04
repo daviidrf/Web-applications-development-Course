@@ -71,9 +71,14 @@ public class Product {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("   " + code + "   " + name + "   " + price + "$    " + stock);
+        sb.append("Code --> ").append(code);
+        sb.append(" / Name --> ").append(name);
+        sb.append(" / Price --> ").append(price);
+        sb.append(" / Stock -->").append(stock);
         return sb.toString();
     }
+
+    
 
     @Override
     public boolean equals(Object obj) {
