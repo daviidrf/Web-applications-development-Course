@@ -6,7 +6,7 @@ header_nav("Inicio");
     <div class="container py-5 h-100">
         <div class="row d-flex align-items-center justify-content-center h-100">
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <form action="" method="get">
+                <form action="" method="get" style="margin-top: 10%;">
                     <div class="form-outline mb-4 dspace">
                         <label class="form-label" for="form1Example23" style="margin-bottom: 10px;">Nombre:</label>
                         <input type="text" name="name" id="form1Example23" class="form-control form-control-lg" />

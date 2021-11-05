@@ -31,6 +31,11 @@ header_nav("ENCUESTA");
                             <label for="$arrayLetras[$j]">$respuestas[$j]</label><br>
                         HER;
                     }
+                    echo <<<HER
+                        <div class="d-flex justify-content-around align-items-center mb-4 dspace">
+                            <a>No tienes cuenta? Registrate</a>
+                        </div>
+                    HER;
                     echo "<br>";
                 }
             }

@@ -1,0 +1,2 @@
+davex:ubuntu:david@gmail.com:david:rodriguez:27/05/2000:Deporte,Cine,Leer:Admin
+jordex:ubuntu:jordi@gmail.com:jordi:rocha:08/07/2000:Deporte,Cine,Leer:Admin
