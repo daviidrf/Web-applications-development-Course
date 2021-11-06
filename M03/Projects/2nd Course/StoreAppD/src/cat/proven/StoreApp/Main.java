@@ -185,21 +185,29 @@ public class Main {
     private void modifyProduct() {
         Scanner sc = new Scanner(System.in);
 
-        Product modProd = newProduct();
+        alert("Introduce the Code of the product to modify: ");
+        Product modSearch = new Product(sc.nextLine());
 
-        if (modProd != null) {
-            alert("Confirm to modify the product values Y/N: ");
-            if (sc.nextLine().equalsIgnoreCase("Y")) {
-                boolean result = myStore.modifyProduct(modProd);
+        modSearch = myStore.getProduct(modSearch);
 
-                if (result) {
-                    alert("\nProduct succesfully modified.\n");
+        if (modSearch != null) {
+            alert("\nProduct found, introduce the new values:\n\n");
+            Product modProd = newProduct();
+            if (modProd != null) {
+                alert("\nConfirm to modify the product values Y/N: ");
+                if (sc.nextLine().equalsIgnoreCase("Y")) {
+                    boolean result = myStore.modifyProduct(modProd, modSearch);
+                    if (result) {
+                        alert("\nProduct succesfully modified.\n");
+                    } else {
+                        alert("\nError modifying the product!\n");
+                    }
                 } else {
-                    alert("\nError modifying the product!\n");
+                    alert("Aborting modification...");
                 }
-            } else {
-                alert("Aborting modification...");
             }
+        } else {
+            alert("\nProduct not found!");
         }
     }
 

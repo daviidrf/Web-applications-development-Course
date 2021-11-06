@@ -100,7 +100,13 @@ public class Store {
          }
         return null;
     }
-
+    
+    
+    /**
+     * 
+     * @param stock what you want to filter.
+     * @return a list of articles below the stock given.
+     */
     public List<Product> getPbyStock(int stock) {
          List<Product> articlesToReturn = new ArrayList<>();
         
@@ -111,18 +117,25 @@ public class Store {
         }
         return articlesToReturn;
     }
-
-    public boolean modifyProduct(Product modProd) {
-        boolean b;
+    
+    /**
+     * 
+     * @param modProd
+     * @return 
+     */
+    public boolean modifyProduct(Product modProd,Product modSearch) {
+        boolean b = false;
 
         if (modProd != null) {
-            if (products.contains(modProd)) {
-                int index = products.indexOf(modProd);
+            if (products.contains(modSearch)) {
+                int index = products.indexOf(modSearch);
                 if(index != -1){
+                    products.get(index).setCode(modProd.getCode());
                     products.get(index).setName(modProd.getName());
-                    
+                    products.get(index).setPrice(modProd.getPrice());
+                    products.get(index).setStock(modProd.getStock());
+                    b = true;
                 }
-                b = true;
             } else {
                 b = false;
             }
