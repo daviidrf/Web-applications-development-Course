@@ -1,14 +1,16 @@
 package cat.proven.StoreApp;
 
+import cat.proven.StoreApp.model.Fridge;
 import cat.proven.StoreApp.model.Product;
 import cat.proven.StoreApp.model.Store;
+import cat.proven.StoreApp.model.Tv;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- *
  * @author David
  */
 public class Main {
@@ -43,20 +45,13 @@ public class Main {
             System.out.println("-------------------------------------------------------------------");
 
             switch (opcion) {
-                case 1 ->
-                    listAll();
-                case 2 ->
-                    searchByCode();
-                case 3 ->
-                    addProduct();
-                case 4 ->
-                    modifyProduct();
-                case 5 ->
-                    removeProduct();
-                case 6 ->
-                    searchByStock();
-                case 7 ->
-                    searchByType();
+                case 1 -> listAll();
+                case 2 -> searchByCode();
+                case 3 -> addProduct();
+                case 4 -> modifyProduct();
+                case 5 -> removeProduct();
+                case 6 -> searchByStock();
+                case 7 -> searchByType();
                 case 0 -> {
                     System.out.println("Closing App...\n");
                     exit = true;
@@ -140,9 +135,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         alert("Introduce the code to search your Product: ");
-        Product codeProd = new Product(sc.nextLine());
-
-        Product article = myStore.getProduct(codeProd);
+        Product article = myStore.getProduct(sc.nextLine());
 
         if (article != null) {
             alert("\nYour product: \n\n");
@@ -159,19 +152,20 @@ public class Main {
      * is added or not.
      */
     private void addProduct() {
-
-        Product newProd = newProduct();
+        Scanner sc = new Scanner(System.in);
+        alert("What type of product do you want to add: ");
+        Product newProd = newProduct(sc.nextLine());
 
         if (newProd != null) {
             boolean result = myStore.addProduct(newProd);
             if (result) {
-                alert("\nProduct succesfully added to the Store.\n");
+                alert("\nProduct successfully added to the Store.\n");
             } else {
                 alert("\nError adding the product!\n");
             }
 
         } else {
-            alert("\nError adding the product!\n");
+            alert("\nError adding the product, the product is null!\n");
         }
 
     }
@@ -186,28 +180,31 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         alert("Introduce the Code of the product to modify: ");
-        Product modSearch = new Product(sc.nextLine());
+        String code = sc.nextLine();
+        boolean found = myStore.codeExist(code);
+        Product modSearch = myStore.getProduct(code);
 
-        modSearch = myStore.getProduct(modSearch);
-
-        if (modSearch != null) {
-            alert("\nProduct found, introduce the new values:\n\n");
-            Product modProd = newProduct();
-            if (modProd != null) {
-                alert("\nConfirm to modify the product values Y/N: ");
-                if (sc.nextLine().equalsIgnoreCase("Y")) {
-                    boolean result = myStore.modifyProduct(modProd, modSearch);
-                    if (result) {
-                        alert("\nProduct succesfully modified.\n");
+        if (found) {
+            String pType = myStore.getProduct(code).getClass().getName();
+            if (modSearch != null) {
+                alert("\nProduct found, introduce the new values:\n\n");
+                Product modProd = newProduct(pType);
+                if (modProd != null) {
+                    alert("\nConfirm to modify the product values Y/N: ");
+                    if (sc.nextLine().equalsIgnoreCase("Y")) {
+                        boolean result = myStore.modifyProduct(modProd, modSearch);
+                        if (result) {
+                            alert("\nProduct successfully modified.\n");
+                        } else {
+                            alert("\nError modifying the product!\n");
+                        }
                     } else {
-                        alert("\nError modifying the product!\n");
+                        alert("Aborting modification...");
                     }
-                } else {
-                    alert("Aborting modification...");
                 }
+            } else {
+                alert("\nProduct not found!");
             }
-        } else {
-            alert("\nProduct not found!");
         }
     }
 
@@ -220,7 +217,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         alert("Introduce the Code of the product to remove: ");
-        Product remProd = new Product(sc.nextLine());
+        Product remProd = myStore.getProduct(sc.nextLine());
 
         if (remProd != null) {
             alert("Confirm to remove the prouduct Y/N: ");
@@ -277,20 +274,45 @@ public class Main {
      *
      * @return a new product.
      */
-    private Product newProduct() {
+    private Product newProduct(String type) {
         Scanner sc = new Scanner(System.in);
-        Product newProd = new Product();
 
-        alert("Introduce the new ID: ");
-        newProd.setCode(sc.nextLine());
-        alert("Introduce the new name: ");
-        newProd.setName(sc.nextLine());
-        alert("Introduce the new price: ");
-        newProd.setPrice(sc.nextDouble());
-        alert("Introduce the new stock: ");
-        newProd.setStock(sc.nextInt());
+        if (type.equalsIgnoreCase("tv")) {
+            Tv newProd = new Tv();
+            alert("Introduce the new ID: ");
+            newProd.setCode(sc.nextLine());
+            alert("Introduce the new name: ");
+            newProd.setName(sc.nextLine());
+            alert("Introduce the new price: ");
+            newProd.setPrice(sc.nextDouble());
+            alert("Introduce the new stock: ");
+            newProd.setStock(sc.nextInt());
+            alert("Introduce the new inches: ");
+            newProd.setInches(sc.nextInt());
 
-        return newProd;
+            return newProd;
+
+        } else if (type.equalsIgnoreCase("fridge")) {
+            Fridge newProd = new Fridge();
+            alert("Introduce the new ID: ");
+            newProd.setCode(sc.nextLine());
+            alert("Introduce the new name: ");
+            newProd.setName(sc.nextLine());
+            alert("Introduce the new price: ");
+            newProd.setPrice(sc.nextDouble());
+            alert("Introduce the new stock: ");
+            newProd.setStock(sc.nextInt());
+            alert("Introduce the new capacity: ");
+            newProd.setCapacity(sc.nextInt());
+            alert("Introduce the new noFrost value:");
+            newProd.setNoFrost(sc.nextBoolean());
+
+            return newProd;
+        } else {
+            alert("Incorrect type introduced!");
+            return null;
+        }
+
     }
 
 }

@@ -6,7 +6,7 @@ import java.util.Objects;
  *
  * @author David
  */
-public class Product {
+public abstract class Product {
 
     private String code;
     private String name;
