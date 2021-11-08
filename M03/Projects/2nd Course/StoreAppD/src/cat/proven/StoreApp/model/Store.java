@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Store {
 
-    private List<Product> products;
+    private final List<Product> products;
 
     public Store() {
         this.products = new ArrayList<>();
@@ -23,11 +23,9 @@ public class Store {
         products.add(new Tv("22","Xiaomi G4", 180, 8, 55));
         products.add(new Tv("33","Apple TV", 120, 20, 45));
 
-        products.add(new Fridge("44","North", 200, 15));
-        products.add(new Fridge("55","Penguin", 180, 8, 55));
-        products.add(new Fridge("66","Frosting", 120, 20, 45));
-
-
+        products.add(new Fridge("44","North", 300, 24, 30, true));
+        products.add(new Fridge("55","Penguin", 280, 3, 42, false));
+        products.add(new Fridge("66","Frosting", 220, 13, 50, true));
     }
 
     /**
@@ -42,7 +40,7 @@ public class Store {
      * duplicates.
      *
      * @param newProd the product to add.
-     * @return true if its succesfully added, false otherwise.
+     * @return true if its successfully added, false otherwise.
      */
     public boolean addProduct(Product newProd) {
         boolean b;
@@ -65,7 +63,7 @@ public class Store {
      *
      * @param remProd the product with the code to reference the product to
      *                remove.
-     * @return true if its succesfully removed, false otherwise.
+     * @return true if its successfully removed, false otherwise.
      */
     public boolean removeProduct(Product remProd) {
         boolean b;
@@ -92,19 +90,13 @@ public class Store {
      */
     public Product getProduct(String codeProd) {
 
-
-
-        if (codeProd != null) {
-            if (products.contains(codeProd)) {
-                int index = products.indexOf(codeProd);
-                if (index != -1) {
-                    return products.get(index);
-                }
+        for (Product product : products) {
+            if (product.getCode().equalsIgnoreCase(codeProd)) {
+                return product;
             }
         }
         return null;
     }
-
 
     /**
      * @param stock what you want to filter.
@@ -113,48 +105,64 @@ public class Store {
     public List<Product> getPbyStock(int stock) {
         List<Product> articlesToReturn = new ArrayList<>();
 
-        for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getStock() < stock) {
-                articlesToReturn.add(products.get(i));
+        for (Product product : products) {
+            if (product.getStock() < stock) {
+                articlesToReturn.add(product);
             }
         }
         return articlesToReturn;
     }
 
     /**
-     * @param modProd
-     * @return
+     * @param modProd the new product values.
+     * @param modSearch the old product to search.
+     * @return true if the product is modified or false otherwise.
      */
     public boolean modifyProduct(Product modProd, Product modSearch) {
-        boolean b = false;
 
         if (modProd != null) {
             if (products.contains(modSearch)) {
                 int index = products.indexOf(modSearch);
                 if (index != -1) {
-                    if (!products.contains(modProd)) {
-                        products.set(index, modProd);
-                        b = true;
-                    } else {
-                        b = false;
-                    }
+                    products.set(index, modProd);
+                    return true;
                 }
             } else {
-                b = false;
+                return false;
             }
         } else {
-            b = false;
+            return false;
         }
-        return b;
+        return false;
     }
 
+    /**
+     * @param code to search if exists.
+     * @return true if code exist or false otherwise.
+     */
     public boolean codeExist(String code) {
         boolean found = false;
-        for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getCode().equalsIgnoreCase(code)) {
+        for (Product product : products) {
+            if (product.getCode().equalsIgnoreCase(code)) {
                 found = true;
+                break;
             }
         }
         return found;
+    }
+
+    /**
+     * @param typeGiven the type of the products to filter.
+     * @return a list of the products with the given type.
+     */
+    public List<Product> getProductsByType(String typeGiven) {
+        List<Product> yourType = new ArrayList<>();
+
+        for (Product product : products) {
+            if (product.getClass().getSimpleName().equalsIgnoreCase(typeGiven)) {
+                yourType.add(product);
+            }
+        }
+        return yourType;
     }
 }
