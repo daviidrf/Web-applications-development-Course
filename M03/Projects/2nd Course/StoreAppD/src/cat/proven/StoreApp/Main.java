@@ -17,8 +17,7 @@ public class Main {
 
     private Store myStore;
 
-    private List<String> menuOptions;
-    private boolean exit;
+    private final List<String> menuOptions;
 
     public Main() {
         this.menuOptions = new ArrayList<>();
@@ -33,18 +32,19 @@ public class Main {
     }
 
     private void run() {
-        int opcion;
+        int option;
         generateMenu();
         myStore = new Store();
         myStore.generateTestData();
 
+        boolean exit;
         do {
             exit = false;
             System.out.println("-------------------------------------------------------------------");
-            opcion = displaySelector(menuOptions);
+            option = displaySelector(menuOptions);
             System.out.println("-------------------------------------------------------------------");
 
-            switch (opcion) {
+            switch (option) {
                 case 1 -> listAll();
                 case 2 -> searchByCode();
                 case 3 -> addProduct();
@@ -56,9 +56,7 @@ public class Main {
                     System.out.println("Closing App...\n");
                     exit = true;
                 }
-                default -> {
-                    System.out.print("Incorrect Option!");
-                }
+                default -> System.out.print("Incorrect Option!\n");
             }
         } while (!exit);
     }
@@ -70,7 +68,7 @@ public class Main {
         menuOptions.add("Add product.");
         menuOptions.add("Modify product.");
         menuOptions.add("Remove product.");
-        menuOptions.add("Search product with the stock given.");
+        menuOptions.add("Search product with stock below the given.");
         menuOptions.add("Search product by type.");
     }
 
@@ -98,7 +96,7 @@ public class Main {
     /**
      * Prompts a message to user
      *
-     * @param message
+     * @param message the input message to display.
      */
     private void alert(String message) {
         System.out.print(message);
@@ -113,12 +111,8 @@ public class Main {
 
         if (articles.size() > 0) {
             System.out.println("Number of products in the store: " + articles.size() + "\n");
-
-//            System.out.println("------------------------------------");
-//            System.out.printf("%4$4s %3$4s %2$4s %1$4s", "Code", "Name", "Price", "Stock");
-//            System.out.println("\n------------------------------------");
-            for (int i = 0; i < articles.size(); i++) {
-                System.out.println(articles.get(i).toString() + "\n");
+            for (Product article : articles) {
+                System.out.println(article.toString() + "\n");
             }
         } else {
             alert("There is no product in the store!");
@@ -139,7 +133,7 @@ public class Main {
 
         if (article != null) {
             alert("\nYour product: \n\n");
-            System.out.println(article.toString());
+            System.out.println(article);
         } else {
             System.out.println("Your Object doesn't exist.\n");
         }
@@ -185,7 +179,7 @@ public class Main {
         Product modSearch = myStore.getProduct(code);
 
         if (found) {
-            String pType = myStore.getProduct(code).getClass().getName();
+            String pType = myStore.getProduct(code).getClass().getSimpleName();
             if (modSearch != null) {
                 alert("\nProduct found, introduce the new values:\n\n");
                 Product modProd = newProduct(pType);
@@ -199,12 +193,12 @@ public class Main {
                             alert("\nError modifying the product!\n");
                         }
                     } else {
-                        alert("Aborting modification...");
+                        alert("Aborting modification...\n");
                     }
                 }
-            } else {
-                alert("\nProduct not found!");
             }
+        } else {
+            alert("\nProduct not found!\n");
         }
     }
 
@@ -220,12 +214,12 @@ public class Main {
         Product remProd = myStore.getProduct(sc.nextLine());
 
         if (remProd != null) {
-            alert("Confirm to remove the prouduct Y/N: ");
+            alert("Confirm to remove the product Y/N: ");
             if (sc.nextLine().equalsIgnoreCase("Y")) {
                 boolean result = myStore.removeProduct(remProd);
 
                 if (result) {
-                    alert("\nProduct succesfully removed from the Store.\n");
+                    alert("\nProduct successfully removed from the Store.\n");
                 } else {
                     alert("\nError removing the product!\n");
                 }
@@ -249,11 +243,11 @@ public class Main {
         int stock = sc.nextInt();
         List<Product> articles = myStore.getPbyStock(stock);
 
+        System.out.println("Number of products in the store with stock below " + stock + ": " + articles.size() + "\n");
         if (articles.size() > 0) {
-            System.out.println("Number of products in the store with stock below " + stock + ": " + articles.size() + "\n");
 
-            for (int i = 0; i < articles.size(); i++) {
-                System.out.println(articles.get(i).toString() + "\n");
+            for (Product article : articles) {
+                System.out.println(article.toString() + "\n");
             }
         } else {
             alert("There is no product below that stock!\n");
@@ -266,7 +260,24 @@ public class Main {
      * results.
      */
     private void searchByType() {
-        //TODO
+        Scanner sc = new Scanner(System.in);
+        alert("What type of product do you want to list: ");
+        String pType = sc.nextLine();
+
+        if (pType.equalsIgnoreCase("tv") || pType.equalsIgnoreCase("fridge")) {
+            List<Product> articles = myStore.getProductsByType(pType);
+
+            System.out.println("Number of products of this type: " + articles.size() + "\n");
+            if (articles.size() > 0) {
+                for (Product article : articles) {
+                    System.out.println(article.toString() + "\n");
+                }
+            } else {
+                alert("There is no products of this type!\n");
+            }
+        } else {
+            alert("Type given not valid!\n");
+        }
     }
 
     /**
@@ -304,7 +315,7 @@ public class Main {
             newProd.setStock(sc.nextInt());
             alert("Introduce the new capacity: ");
             newProd.setCapacity(sc.nextInt());
-            alert("Introduce the new noFrost value:");
+            alert("Introduce the new noFrost value: ");
             newProd.setNoFrost(sc.nextBoolean());
 
             return newProd;
