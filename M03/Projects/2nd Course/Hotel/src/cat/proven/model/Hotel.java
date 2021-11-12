@@ -56,5 +56,5 @@ public class Hotel {
         return false;
     }
 
-    
+
 }
