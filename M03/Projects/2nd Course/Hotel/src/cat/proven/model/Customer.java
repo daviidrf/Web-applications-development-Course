@@ -20,4 +20,12 @@ public class Customer {
         this.name = other.name;
         this.NIF = other.NIF;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("\nName --> ");
+        sb.append(name);
+        sb.append("\nNIF --> ").append(NIF);
+        return sb.toString();
+    }
 }

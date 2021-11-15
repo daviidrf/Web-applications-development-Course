@@ -30,7 +30,13 @@ public class Hotel {
      * @return a list with all the customers or an empty list.
      */
     public List<Customer> getCustomers(){
-        return null;
+        List<Customer> customers = new ArrayList<>();
+        for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
+            for (int i = 0; i < entry.getValue().size(); i++) {
+                customers.add(entry.getValue().get(i));
+            }
+        }
+        return customers;
     }
 
     /**
@@ -39,7 +45,15 @@ public class Hotel {
      * @return a list with th customers in the room given or an empty list.
      */
     public List<Customer> getCustomersByRoom(Room room){
-        return null;
+        List<Customer> customers = new ArrayList<>();
+        for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
+            if(entry.getKey().equals(room)){
+                for (int i = 0; i < entry.getValue().size(); i++) {
+                    customers.add(entry.getValue().get(i));
+                }
+            }
+        }
+        return customers;
     }
 
     /**
@@ -101,9 +115,17 @@ public class Hotel {
      */
     public void generateData() {
         List<Customer> emptyRoom = new ArrayList<>();
-        hotel.put(new Room(1, 3, 50, "STANDARD", false),emptyRoom);
-        hotel.put(new Room(2, 4, 30, "SUPERIOR", false),emptyRoom);
-        hotel.put(new Room(3, 1, 40, "STANDARD", false),emptyRoom);
-        hotel.put(new Room(4, 2, 100, "SUITE", false),emptyRoom);
+        List<Customer> room1 = new ArrayList<>();
+            room1.add(new Customer("David", "46480325Q"));
+            room1.add(new Customer("Jordi", "45636534R"));
+        List<Customer> room2 = new ArrayList<>();
+        room2.add(new Customer("Roger", "43124542E"));
+
+        hotel.put(new Room(1, 3, 50, "STANDARD"),room1);
+        hotel.put(new Room(2, 4, 30, "SUPERIOR"),emptyRoom);
+        hotel.put(new Room(3, 1, 40, "STANDARD"),room2);
+        hotel.put(new Room(4, 2, 100, "SUITE"),emptyRoom);
+
+
     }
 }

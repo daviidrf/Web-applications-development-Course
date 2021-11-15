@@ -1,5 +1,6 @@
 package cat.proven.app;
 
+import cat.proven.model.Customer;
 import cat.proven.model.Hotel;
 import cat.proven.model.Room;
 
@@ -40,8 +41,8 @@ public class HotelApp {
 
             switch (option) {
                 case 1 -> listAllRooms();
-                //case 2 -> ;
-                //case 3 -> ;
+                case 2 -> listAllCustomers();
+                case 3 -> listCustomersById();
                 //case 4 -> ;
                 //case 5 -> ;
                 //case 6 -> ;
@@ -98,14 +99,70 @@ public class HotelApp {
         System.out.print(message);
     }
 
+    private void askRoomValues() {
+        Scanner sc = new Scanner(System.in);
+        Room newRoom;
+        String category = null;
+
+        alert("Introduce the new room number: ");
+        int number = sc.nextInt();
+        alert("Introduce the new room capacity: ");
+        int capacity = sc.nextInt();
+        alert("Introduce the new room price: ");
+        double price = sc.nextDouble();
+        do {
+            alert("Introduce the new room category: ");
+            category = sc.nextLine();
+        } while(!category.equalsIgnoreCase("standard") ||
+                    !category.equalsIgnoreCase("superior") ||
+                    !category.equalsIgnoreCase("suite"));
+
+        newRoom = new Room();
+    }
+
     /**
      * Show all the rooms.
      */
     private void listAllRooms() {
         List<Room> rooms = Devel.getRooms();
+
         for (int i = 0; i < rooms.size(); i++) {
-            alert("Room" + (i + 1) + "\n");
-            System.out.println(rooms.get(i).toString());
+            alert(rooms.get(i).toString() + "\n");
         }
     }
+
+    /**
+     * Show all the customers in the Hotel.
+     */
+    private void listAllCustomers() {
+        List<Customer> customers = Devel.getCustomers();
+
+        if(customers.size() > 0){
+            for (int i = 0; i < customers.size(); i++) {
+                alert(customers.get(i).toString() + "\n");
+            }
+        } else {
+            alert("There are no rooms with customers.");
+        }
+
+    }
+
+    /**
+     * Show the customers in the room given.
+     */
+    private void listCustomersById() {
+        Scanner sc = new Scanner(System.in);
+
+        alert("Introduce the number of the room to list the customers: ");
+        List<Customer> customers = Devel.getCustomersByRoom(new Room(sc.nextInt()));
+
+        if(customers.size() > 0){
+            for (int i = 0; i < customers.size(); i++) {
+                alert(customers.get(i).toString() + "\n");
+            }
+        } else {
+            alert("This room is empty.\n\n");
+        }
+    }
+
 }
