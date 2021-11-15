@@ -1,0 +1,24 @@
+#resultado{
+    text-align: center;
+    
+}
+
+#correctas{
+	background-color: darkseagreen;
+    padding: 10px;
+    width: 700px;
+    height: 50px;
+    border-radius: 25px!important;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+#fallos{
+	background-color: indianred;
+    padding: 10px;
+    width: 700px;
+    height: 50px;
+    border-radius: 25px!important;
+    margin: 0 auto;
+
+}
+
