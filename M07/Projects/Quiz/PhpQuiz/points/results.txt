@@ -1,0 +1,15 @@
+jordi_rocha:0:5:0
+jordi_rocha:1:4:10
+jordi_rocha:1:4:10
+prueba:3:2:30
+prueba:3:2:30
+davex:2:1:20
+jordi_rocha:3:0:30
+jordi_rocha:0:3:0
+jordi_rocha:0:3:0
+jordi_rocha:0:3:0
+jordi_rocha:0:3:0
+jordi_rocha:0:3:0
+jordi_rocha:3:2:30
+jordi_rocha:3:2:30
+davex:3:0:30
