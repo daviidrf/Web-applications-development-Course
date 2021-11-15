@@ -1,0 +1,37 @@
+
+#juego {
+    opacity: 0.8;
+    width: 625px;
+    height: 625px;
+    
+}
+
+table {
+    width: 95%;
+    height: 95%;
+}
+
+td {
+    width: 25%;
+    height: 25%;
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 5px;
+  
+}
+
+.letra {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    font-style: italic;
+}
+
+input {
+    width: 100px;
+    height: 30px;
+}
+
+.centrar {
+    margin-left: 195px;
+}
