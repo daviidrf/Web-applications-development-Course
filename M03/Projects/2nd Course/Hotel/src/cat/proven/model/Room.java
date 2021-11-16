@@ -51,6 +51,10 @@ public class Room {
         return number == room.number;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(number);

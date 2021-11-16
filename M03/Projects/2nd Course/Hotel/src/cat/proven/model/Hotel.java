@@ -76,6 +76,10 @@ public class Hotel {
      * @return 1 if the room is successfully removed or -1 otherwise.
      */
     public int removeRoom(Room room){
+        if(hotel.containsKey(room)){
+            hotel.remove(room);
+            return 1;
+        }
         return -1;
     }
 
@@ -86,6 +90,11 @@ public class Hotel {
      * @return 1 if the room is successfully modified or -1 otherwise.
      */
     public int modifyRoom(Room newRoom, Room oldRoom){
+        for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
+            if(entry.getKey().equals(oldRoom)){
+                    //entry.getKey(newRoom);
+            }
+        }
         return -1;
     }
 

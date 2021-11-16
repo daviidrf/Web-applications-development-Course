@@ -43,8 +43,8 @@ public class HotelApp {
                 case 1 -> listAllRooms();
                 case 2 -> listAllCustomers();
                 case 3 -> listCustomersById();
-                //case 4 -> ;
-                //case 5 -> ;
+                case 4 -> addRoom();
+                case 5 -> removeRoom();
                 //case 6 -> ;
                 //case 7 -> ;
                 case 0 -> {
@@ -55,6 +55,7 @@ public class HotelApp {
             }
         } while (!exit);
     }
+
 
     private void generateMenu() {
         menuOptions.add("Exit.");
@@ -99,10 +100,14 @@ public class HotelApp {
         System.out.print(message);
     }
 
-    private void askRoomValues() {
+    /**
+     * Ask the values for the new room.
+     * @return a room with the values given.
+     */
+    private Room askRoomValues() {
         Scanner sc = new Scanner(System.in);
-        Room newRoom;
         String category = null;
+        boolean catOk = false;
 
         alert("Introduce the new room number: ");
         int number = sc.nextInt();
@@ -110,14 +115,26 @@ public class HotelApp {
         int capacity = sc.nextInt();
         alert("Introduce the new room price: ");
         double price = sc.nextDouble();
-        do {
-            alert("Introduce the new room category: ");
-            category = sc.nextLine();
-        } while(!category.equalsIgnoreCase("standard") ||
-                    !category.equalsIgnoreCase("superior") ||
-                    !category.equalsIgnoreCase("suite"));
 
-        newRoom = new Room();
+        while (!catOk) {
+            alert("Introduce the new room category: ");
+            sc.nextLine();
+            category = sc.nextLine();
+
+            if (category.equalsIgnoreCase("standard")) {
+                category = "STANDARD";
+                catOk = true;
+            } else if (category.equalsIgnoreCase("superior")) {
+                category = "SUPERIOR";
+                catOk = true;
+            } else if (category.equalsIgnoreCase("suite")) {
+                category = "SUITE";
+                catOk = true;
+            } else {
+                alert("Incorrect category!\n");
+            }
+        }
+        return new Room(number, capacity, price, category);
     }
 
     /**
@@ -126,8 +143,8 @@ public class HotelApp {
     private void listAllRooms() {
         List<Room> rooms = Devel.getRooms();
 
-        for (int i = 0; i < rooms.size(); i++) {
-            alert(rooms.get(i).toString() + "\n");
+        for (Room room : rooms) {
+            alert(room.toString() + "\n");
         }
     }
 
@@ -137,9 +154,9 @@ public class HotelApp {
     private void listAllCustomers() {
         List<Customer> customers = Devel.getCustomers();
 
-        if(customers.size() > 0){
-            for (int i = 0; i < customers.size(); i++) {
-                alert(customers.get(i).toString() + "\n");
+        if (customers.size() > 0) {
+            for (Customer customer : customers) {
+                alert(customer.toString() + "\n");
             }
         } else {
             alert("There are no rooms with customers.");
@@ -156,12 +173,54 @@ public class HotelApp {
         alert("Introduce the number of the room to list the customers: ");
         List<Customer> customers = Devel.getCustomersByRoom(new Room(sc.nextInt()));
 
-        if(customers.size() > 0){
-            for (int i = 0; i < customers.size(); i++) {
-                alert(customers.get(i).toString() + "\n");
+        if (customers.size() > 0) {
+            for (Customer customer : customers) {
+                alert(customer.toString() + "\n");
             }
         } else {
             alert("This room is empty.\n\n");
+        }
+    }
+
+    /**
+     * Ask the user a new room values and add it in the Hotel.
+     */
+    private void addRoom() {
+        Room newRoom = askRoomValues();
+        int result = Devel.addRoom(newRoom);
+
+        if (result == 1) {
+            alert("\nRoom successfully added.\n");
+        } else {
+            alert("\nError adding the room.\n");
+        }
+    }
+
+    /**
+     * Ask the user a room number and remove it from the Hotel.
+     */
+    private void removeRoom() {
+        Scanner sc = new Scanner(System.in);
+        int result = -1;
+
+        List<Room> rooms = Devel.getRooms();
+        alert("Introduce the number of the room you want to remove: ");
+
+        for (Room room : rooms) {
+            if (room.getNumber() == sc.nextInt()) {
+                alert("Room found, confirm if you want to remove (Y/N): ");
+                sc.nextLine();
+                if(sc.nextLine().equalsIgnoreCase("Y")) {
+                    result = Devel.removeRoom(room);
+                }
+                break;
+            }
+        }
+
+        if(result == 1) {
+            alert("\nRoom successfully removed.\n");
+        } else {
+            alert("\nRoom not removed.\n");
         }
     }
 
