@@ -45,7 +45,7 @@ public class HotelApp {
                 case 3 -> listCustomersById();
                 case 4 -> addRoom();
                 case 5 -> removeRoom();
-                //case 6 -> ;
+                case 6 -> modifyRoom();
                 //case 7 -> ;
                 case 0 -> {
                     System.out.println("Closing App...\n");
@@ -205,9 +205,10 @@ public class HotelApp {
 
         List<Room> rooms = Devel.getRooms();
         alert("Introduce the number of the room you want to remove: ");
+        int number = sc.nextInt();
 
         for (Room room : rooms) {
-            if (room.getNumber() == sc.nextInt()) {
+            if (room.getNumber() == number) {
                 alert("Room found, confirm if you want to remove (Y/N): ");
                 sc.nextLine();
                 if(sc.nextLine().equalsIgnoreCase("Y")) {
@@ -224,4 +225,29 @@ public class HotelApp {
         }
     }
 
+    private void modifyRoom() {
+        Scanner sc = new Scanner(System.in);
+        int result = -1;
+        List<Room> rooms = Devel.getRooms();
+        alert("Introduce the number of the room to modify: ");
+        int number = sc.nextInt();
+
+        for (Room room : rooms) {
+            if (room.getNumber() == number) {
+                Room newRoom = askRoomValues();
+                alert("Room found, confirm if you want to modify (Y/N):");
+                sc.nextLine();
+
+                if (sc.nextLine().equalsIgnoreCase("Y")) {
+                    result = Devel.modifyRoom(newRoom, room);
+                }
+                break;
+            }
+        }
+        if(result == 1) {
+            alert("\nRoom successfully modified.\n");
+        } else {
+            alert("\nRoom not modified.\n");
+        }
+    }
 }
