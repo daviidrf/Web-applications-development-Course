@@ -55,6 +55,22 @@ public class Room {
         return number;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public boolean isOccupied() {
+        return occupied;
+    }
+
+    public void setOccupied(boolean occupied) {
+        this.occupied = occupied;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(number);

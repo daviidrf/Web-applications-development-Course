@@ -46,7 +46,9 @@ public class HotelApp {
                 case 4 -> addRoom();
                 case 5 -> removeRoom();
                 case 6 -> modifyRoom();
-                //case 7 -> ;
+                case 7 -> checkIn();
+                case 8 -> checkOut();
+                case 9 -> listOccupiedRooms();
                 case 0 -> {
                     System.out.println("Closing App...\n");
                     exit = true;
@@ -67,7 +69,7 @@ public class HotelApp {
         menuOptions.add("Modify a room.");
         menuOptions.add("Check-in a customer.");
         menuOptions.add("Check-out a customer.");
-        menuOptions.add("Number of occupied rooms.");
+        menuOptions.add("List occupied rooms.");
     }
 
     /**
@@ -102,12 +104,11 @@ public class HotelApp {
 
     /**
      * Ask the values for the new room.
+     *
      * @return a room with the values given.
      */
     private Room askRoomValues() {
         Scanner sc = new Scanner(System.in);
-        String category = null;
-        boolean catOk = false;
 
         alert("Introduce the new room number: ");
         int number = sc.nextInt();
@@ -115,26 +116,24 @@ public class HotelApp {
         int capacity = sc.nextInt();
         alert("Introduce the new room price: ");
         double price = sc.nextDouble();
+        alert("Introduce the new category: ");
+        String category = getCategory(sc.nextLine());
 
-        while (!catOk) {
-            alert("Introduce the new room category: ");
-            sc.nextLine();
-            category = sc.nextLine();
-
-            if (category.equalsIgnoreCase("standard")) {
-                category = "STANDARD";
-                catOk = true;
-            } else if (category.equalsIgnoreCase("superior")) {
-                category = "SUPERIOR";
-                catOk = true;
-            } else if (category.equalsIgnoreCase("suite")) {
-                category = "SUITE";
-                catOk = true;
-            } else {
-                alert("Incorrect category!\n");
-            }
-        }
         return new Room(number, capacity, price, category);
+    }
+
+    /**
+     * @param category the category to compare.
+     * @return a valid category for the new Hotel room.
+     */
+    private String getCategory(String category) {
+        if (category.equalsIgnoreCase("superior")) {
+            return "SUPERIOR";
+        } else if (category.equalsIgnoreCase("suite")) {
+            return "SUITE";
+        } else {
+            return "STANDARD";
+        }
     }
 
     /**
@@ -211,20 +210,23 @@ public class HotelApp {
             if (room.getNumber() == number) {
                 alert("Room found, confirm if you want to remove (Y/N): ");
                 sc.nextLine();
-                if(sc.nextLine().equalsIgnoreCase("Y")) {
+                if (sc.nextLine().equalsIgnoreCase("Y")) {
                     result = Devel.removeRoom(room);
                 }
                 break;
             }
         }
 
-        if(result == 1) {
+        if (result == 1) {
             alert("\nRoom successfully removed.\n");
         } else {
             alert("\nRoom not removed.\n");
         }
     }
 
+    /**
+     * Ask the user a room number and modify it with the new values given.
+     */
     private void modifyRoom() {
         Scanner sc = new Scanner(System.in);
         int result = -1;
@@ -244,10 +246,91 @@ public class HotelApp {
                 break;
             }
         }
-        if(result == 1) {
+        if (result == 1) {
             alert("\nRoom successfully modified.\n");
         } else {
             alert("\nRoom not modified.\n");
         }
+    }
+
+    /**
+     * Check in the users given by the user in the room selected.
+     */
+    private void checkIn() {
+        Scanner sc = new Scanner(System.in);
+
+        alert("Introduce the category do you want: ");
+        String category = sc.nextLine();
+        alert("Introduce the number of customers to check in:");
+        int capacity = sc.nextInt();
+
+        List<Room> available = Devel.getRoomsByCategoryCapacity(category, capacity);
+
+        if (available.size() > 0) {
+            alert("\nShowing available rooms...\n");
+            for (Room room : available) {
+                alert(room.toString() + "\n");
+            }
+            alert("\nIntroduce the number of the room to check in: \n");
+            Room room = Devel.getRoomByNumber(sc.nextInt());
+            if (room != null) {
+                if (Devel.getCustomersByRoom(room).isEmpty()) {
+                    List<Customer> customers = askCustomersValues(capacity);
+                    if (Devel.checkInCustomers(room, customers) == 1) {
+                        alert("\nCustomers checked in room " + room.getNumber() + "\n");
+                    } else {
+                        alert("\nError checking in the customers!\n");
+                    }
+                } else {
+                    alert("\nThis room is occupied!\n");
+                }
+            }
+        } else {
+            alert("\nNo available rooms!\n");
+        }
+
+
+    }
+
+    private void checkOut() {
+        Scanner sc = new Scanner(System.in);
+
+        alert("Introduce the number of the room to check out: ");
+        Room room = Devel.getRoomByNumber(sc.nextInt());
+        if (room != null) {
+            if(!Devel.getCustomersByRoom(room).isEmpty()){
+                if (Devel.checkOutCustomers(room) == 1) {
+                    alert("Customers checked out successfully.\n");
+                } else {
+                    alert("Error checking out the customers!\n");
+                }
+            } else {
+                alert("\nThis room is empty already!\n");
+            }
+        }
+    }
+
+    private void listOccupiedRooms() {
+        List<Room> rooms = Devel.getOccupiedRooms();
+
+        for (Room room : rooms) {
+            alert(room.toString() + "\n");
+        }
+    }
+
+    private List<Customer> askCustomersValues(int capacity) {
+        Scanner sc = new Scanner(System.in);
+        List<Customer> customers = new ArrayList<>();
+
+        for (int i = 0; i < capacity; i++) {
+            alert("\nIntroduce the Name: ");
+            String name = sc.nextLine();
+            alert("Introduce the NIF: ");
+            String nif = sc.nextLine();
+
+            customers.add(new Customer(name, nif));
+        }
+
+        return customers;
     }
 }

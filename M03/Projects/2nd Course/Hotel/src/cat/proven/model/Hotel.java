@@ -114,7 +114,13 @@ public class Hotel {
      * @return a list with the occupied rooms or an empty list.
      */
     public List<Room> getOccupiedRooms() {
-        return null;
+        List<Room> rooms = new ArrayList<>();
+        for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
+            if (entry.getKey().isOccupied()) {
+                rooms.add(entry.getKey());
+            }
+        }
+        return rooms;
     }
 
     /**
@@ -126,9 +132,11 @@ public class Hotel {
      */
     public int checkInCustomers(Room room, List<Customer> customers) {
         for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
-            if (entry.getKey().equals(room)) {
-                entry.setValue(customers);
-                return 1;
+            if (entry.getKey().equals(room) && !entry.getKey().isOccupied()) {
+                if(changeRoomOccupancy(entry.getKey()) == 1) {
+                    entry.setValue(customers);
+                    return 1;
+                }
             }
         }
 
@@ -142,6 +150,48 @@ public class Hotel {
      * @return 1 if the customers are successfully removed from the room or -1 otherwise.
      */
     public int checkOutCustomers(Room room) {
+        List<Customer> customers = new ArrayList<>();
+
+        for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
+            if (entry.getKey().equals(room)) {
+                if(changeRoomOccupancy(entry.getKey()) == 1) {
+                    entry.setValue(customers);
+                    return 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public List<Room> getRoomsByCategoryCapacity(String category, int capacity) {
+        List<Room> rooms = new ArrayList<>();
+        for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
+            if (entry.getKey().getCategory().equalsIgnoreCase(category)
+                    && entry.getKey().getCapacity() >= capacity
+                    && !entry.getKey().isOccupied()) {
+                rooms.add(entry.getKey());
+            }
+        }
+        return rooms;
+    }
+
+    public Room getRoomByNumber(int number) {
+        for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
+            if (entry.getKey().getNumber() == number) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    private int changeRoomOccupancy(Room room) {
+        if(room.isOccupied()) {
+            room.setOccupied(false);
+            return 1;
+        } else if(!room.isOccupied()){
+            room.setOccupied(true);
+            return 1;
+        }
         return -1;
     }
 
@@ -156,11 +206,14 @@ public class Hotel {
         List<Customer> room2 = new ArrayList<>();
         room2.add(new Customer("Roger", "43124542E"));
 
-        hotel.put(new Room(1, 3, 50, "STANDARD"), room1);
+        Room r1 = new Room(1, 3, 50, "STANDARD");
+        r1.setOccupied(true);
+        Room r2 = new Room(3, 1, 40, "SUITE");
+        r2.setOccupied(true);
+
+        hotel.put(r1, room1);
         hotel.put(new Room(2, 4, 30, "SUPERIOR"), emptyRoom);
-        hotel.put(new Room(3, 1, 40, "STANDARD"), room2);
-        hotel.put(new Room(4, 2, 100, "SUITE"), emptyRoom);
-
-
+        hotel.put(r2, room2);
+        hotel.put(new Room(4, 2, 100, "STANDARD"), emptyRoom);
     }
 }
