@@ -163,6 +163,13 @@ public class Hotel {
         return -1;
     }
 
+    /**
+     * Retrieve the list of rooms with the category and capacity given.
+     *
+     * @param category of the rooms to return.
+     * @param capacity of the rooms to return.
+     * @return a list with the filtered rooms or an empty list.
+     */
     public List<Room> getRoomsByCategoryCapacity(String category, int capacity) {
         List<Room> rooms = new ArrayList<>();
         for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
@@ -175,6 +182,12 @@ public class Hotel {
         return rooms;
     }
 
+    /**
+     * Retrieve the room with the number given.
+     *
+     * @param number of the room to return.
+     * @return a room with the number given or null otherwise.
+     */
     public Room getRoomByNumber(int number) {
         for (Map.Entry<Room, List<Customer>> entry : hotel.entrySet()) {
             if (entry.getKey().getNumber() == number) {
@@ -184,6 +197,12 @@ public class Hotel {
         return null;
     }
 
+    /**
+     * Changes the room occupancy.
+     *
+     * @param room to change it occupancy.
+     * @return 1 if the occupancy is changed or -1 otherwise.
+     */
     private int changeRoomOccupancy(Room room) {
         if(room.isOccupied()) {
             room.setOccupied(false);

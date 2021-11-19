@@ -212,15 +212,14 @@ public class HotelApp {
                 sc.nextLine();
                 if (sc.nextLine().equalsIgnoreCase("Y")) {
                     result = Devel.removeRoom(room);
+                    if (result == 1) {
+                        alert("\nRoom successfully removed.\n");
+                    } else {
+                        alert("\nRoom not removed.\n");
+                    }
                 }
                 break;
             }
-        }
-
-        if (result == 1) {
-            alert("\nRoom successfully removed.\n");
-        } else {
-            alert("\nRoom not removed.\n");
         }
     }
 
@@ -242,14 +241,14 @@ public class HotelApp {
 
                 if (sc.nextLine().equalsIgnoreCase("Y")) {
                     result = Devel.modifyRoom(newRoom, room);
+                    if (result == 1) {
+                        alert("\nRoom successfully modified.\n");
+                    } else {
+                        alert("\nRoom not modified.\n");
+                    }
                 }
                 break;
             }
-        }
-        if (result == 1) {
-            alert("\nRoom successfully modified.\n");
-        } else {
-            alert("\nRoom not modified.\n");
         }
     }
 
@@ -288,17 +287,18 @@ public class HotelApp {
         } else {
             alert("\nNo available rooms!\n");
         }
-
-
     }
 
+    /**
+     * Check out the users in the room selected.
+     */
     private void checkOut() {
         Scanner sc = new Scanner(System.in);
 
         alert("Introduce the number of the room to check out: ");
         Room room = Devel.getRoomByNumber(sc.nextInt());
         if (room != null) {
-            if(!Devel.getCustomersByRoom(room).isEmpty()){
+            if (!Devel.getCustomersByRoom(room).isEmpty()) {
                 if (Devel.checkOutCustomers(room) == 1) {
                     alert("Customers checked out successfully.\n");
                 } else {
