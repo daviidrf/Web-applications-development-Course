@@ -1,0 +1,22 @@
+#formulari{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    border: 2px solid black;
+    width: 40rem;
+    text-align: center;
+    padding-bottom: 12px;
+}
+#result{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    width: 30rem;
+    text-align: center;
+}
+
+.inputs{
+    margin-bottom: 1rem;
+}

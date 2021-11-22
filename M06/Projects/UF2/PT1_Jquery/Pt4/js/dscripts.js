@@ -2,10 +2,10 @@ $(document).ready(function () {
 
     $("#procesar").click(function () {
 
-        let name = $("#name").val();
-        let phone = $("#phone").val();
-        let postal = $("#postal").val();
-        let mail = $("#mail").val();
+        let name = $("#name");
+        let phone = $("#phone");
+        let postal = $("#postal");
+        let mail = $("#mail");
 
         validateForm(name, phone, postal, mail);
 
@@ -13,38 +13,44 @@ $(document).ready(function () {
 });
 
 function validateForm(name, phone, postal, mail) {
-    if(valName(name) && valPhone(phone)){
-        $("#result").text("Form validated :)")
-        $("#result").show();
-    }
-}
 
+    if (/^[A-Z]/.test(name.val()) && name.val().length >= 4) {        
+        name.css("background-color","greenyellow");
+        $("#nameError").hide();
 
-function valName(name) {
-    $("#nameError").hide();
-    let valid = /^[A-Z]/.test(name);
-    if(name.length < 4){
-        valid = false;
-    }
-
-    if(!valid) {
+    } else {
+        name.css("background-color","red");
         $("#nameError").text("Incorrect name format!");
-        $("#result").hide();
         $("#nameError").show();
     }
 
-    return valid;
-}
-
-function valPhone(phone) {
-    $("#phoneError").hide();
-    var valid = /^([0-9]{3})\-([0-9]{6})$/.test(phone);
-
-    if(!valid) {
+    if (/^([0-9]{3})\-([0-9]{6})$/.test(phone.val())) {
+        phone.css("background-color","greenyellow");
+        $("#phoneError").hide();
+    } else {
+        phone.css("background-color","red");
         $("#phoneError").text("Incorrect phone format!");
-        $("#result").hide();
         $("#phoneError").show();
     }
 
-    return valid;
+    if(postal.val().length == 5) {
+        postal.css("background-color","greenyellow");
+        $("#postalError").hide();
+    } else {
+        postal.css("background-color","red");
+        $("#postalError").text("Incorrect postal code format!");
+        $("#postalError").show();
+    }
+
+    if(/^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/.test(mail.val())){
+        mail.css("background-color","greenyellow");
+        $("#mailError").hide();
+    } else {
+        mail.css("background-color","red");
+        $("#mailError").text("Incorrect mail format!");
+        $("#mailError").show();
+    }
 }
+
+
+
