@@ -58,7 +58,9 @@ public class HotelApp {
         } while (!exit);
     }
 
-
+    /**
+     * Generate the menu options of the program.
+     */
     private void generateMenu() {
         menuOptions.add("Exit.");
         menuOptions.add("Show all the rooms.");
@@ -70,6 +72,28 @@ public class HotelApp {
         menuOptions.add("Check-in a customer.");
         menuOptions.add("Check-out a customer.");
         menuOptions.add("List occupied rooms.");
+    }
+
+    /**
+     * Display a list of rooms.
+     *
+     * @param rooms the list of rooms to display.
+     */
+    private void displayRooms(List<Room> rooms) {
+        for (Room room : rooms) {
+            alert(room.toString() + "\n");
+        }
+    }
+
+    /**
+     * Display a list of customers.
+     *
+     * @param customers the list of customers to display.
+     */
+    private void displayCustomers(List<Customer> customers) {
+        for (Customer customer : customers) {
+            alert(customer.toString() + "\n");
+        }
     }
 
     /**
@@ -94,7 +118,7 @@ public class HotelApp {
     }
 
     /**
-     * Prompts a message to user
+     * Prompts a message to the user
      *
      * @param message the input message to display.
      */
@@ -141,30 +165,24 @@ public class HotelApp {
      */
     private void listAllRooms() {
         List<Room> rooms = Devel.getRooms();
-
-        for (Room room : rooms) {
-            alert(room.toString() + "\n");
-        }
+        displayRooms(rooms);
     }
 
     /**
-     * Show all the customers in the Hotel.
+     * Show all the customers in the Hotel. Show the result to the user.
      */
     private void listAllCustomers() {
         List<Customer> customers = Devel.getCustomers();
-
         if (customers.size() > 0) {
-            for (Customer customer : customers) {
-                alert(customer.toString() + "\n");
-            }
+            displayCustomers(customers);
         } else {
             alert("There are no rooms with customers.");
         }
-
     }
 
     /**
-     * Show the customers in the room given.
+     * Show the customers in the room given if there are customers in it.
+     * Show the result to the user.
      */
     private void listCustomersById() {
         Scanner sc = new Scanner(System.in);
@@ -173,16 +191,14 @@ public class HotelApp {
         List<Customer> customers = Devel.getCustomersByRoom(new Room(sc.nextInt()));
 
         if (customers.size() > 0) {
-            for (Customer customer : customers) {
-                alert(customer.toString() + "\n");
-            }
+            displayCustomers(customers);
         } else {
             alert("This room is empty.\n\n");
         }
     }
 
     /**
-     * Ask the user a new room values and add it in the Hotel.
+     * Ask the user a new room values for a new room.
      */
     private void addRoom() {
         Room newRoom = askRoomValues();
@@ -196,7 +212,8 @@ public class HotelApp {
     }
 
     /**
-     * Ask the user a room number and remove it from the Hotel.
+     * Ask the user a room number and the confirmation and remove it from
+     * the Hotel. Show the result to the user.
      */
     private void removeRoom() {
         Scanner sc = new Scanner(System.in);
@@ -224,7 +241,8 @@ public class HotelApp {
     }
 
     /**
-     * Ask the user a room number and modify it with the new values given.
+     * Ask the user a room number and modify it with the new values given
+     * and show to the user the result.
      */
     private void modifyRoom() {
         Scanner sc = new Scanner(System.in);
@@ -253,14 +271,15 @@ public class HotelApp {
     }
 
     /**
-     * Check in the users given by the user in the room selected.
+     * Check in the users given by the user in the room selected
+     * if the room is empty and show to the user the result.
      */
     private void checkIn() {
         Scanner sc = new Scanner(System.in);
 
         alert("Introduce the category do you want: ");
         String category = sc.nextLine();
-        alert("Introduce the number of customers to check in:");
+        alert("Introduce the number of customers to check in: ");
         int capacity = sc.nextInt();
 
         List<Room> available = Devel.getRoomsByCategoryCapacity(category, capacity);
@@ -271,17 +290,27 @@ public class HotelApp {
                 alert(room.toString() + "\n");
             }
             alert("\nIntroduce the number of the room to check in: \n");
-            Room room = Devel.getRoomByNumber(sc.nextInt());
-            if (room != null) {
-                if (Devel.getCustomersByRoom(room).isEmpty()) {
-                    List<Customer> customers = askCustomersValues(capacity);
-                    if (Devel.checkInCustomers(room, customers) == 1) {
-                        alert("\nCustomers checked in room " + room.getNumber() + "\n");
+            int roomNumber = sc.nextInt();
+
+            for (Room roomEntry : available) {
+                if (roomEntry.getNumber() == roomNumber) {
+                    Room room = Devel.getRoomByNumber(roomNumber);
+                    if (room != null) {
+                        if (Devel.getCustomersByRoom(room).isEmpty()) {
+                            List<Customer> customers = askCustomersValues(capacity);
+                            if (Devel.checkInCustomers(room, customers) == 1) {
+                                alert("\nCustomers checked in room " + room.getNumber() + "\n");
+                            } else {
+                                alert("\nError checking in the customers!\n");
+                            }
+                        } else {
+                            alert("\nThis room is occupied!\n");
+                        }
                     } else {
-                        alert("\nError checking in the customers!\n");
+                        alert("\nThis room don't exist!");
                     }
                 } else {
-                    alert("\nThis room is occupied!\n");
+                    alert("\nThat room is not valid! Aborting...\n");
                 }
             }
         } else {
@@ -290,7 +319,8 @@ public class HotelApp {
     }
 
     /**
-     * Check out the users in the room selected.
+     * Check out the users in the room selected if the room is not empty
+     * and show to the user the result.
      */
     private void checkOut() {
         Scanner sc = new Scanner(System.in);
@@ -299,10 +329,22 @@ public class HotelApp {
         Room room = Devel.getRoomByNumber(sc.nextInt());
         if (room != null) {
             if (!Devel.getCustomersByRoom(room).isEmpty()) {
-                if (Devel.checkOutCustomers(room) == 1) {
-                    alert("Customers checked out successfully.\n");
-                } else {
-                    alert("Error checking out the customers!\n");
+                List<Customer> customers = Devel.getCustomersByRoom(room);
+                if (!customers.isEmpty()) {
+                    for (Customer customer : customers) {
+                        System.out.println(customer.toString());
+                    }
+                    alert("\nThis is your room? Confirm to check out (Y/N): ");
+                    sc.nextLine();
+                    if (sc.nextLine().equalsIgnoreCase("Y")) {
+                        if (Devel.checkOutCustomers(room) == 1) {
+                            alert("\nCustomers checked out successfully.\n");
+                        } else {
+                            alert("\nError checking out the customers!\n");
+                        }
+                    } else {
+                        alert("\nCanceling check out...\n");
+                    }
                 }
             } else {
                 alert("\nThis room is empty already!\n");
@@ -310,14 +352,21 @@ public class HotelApp {
         }
     }
 
+    /**
+     * List the rooms occupied by customers if there are. Show the result
+     * to the user.
+     */
     private void listOccupiedRooms() {
         List<Room> rooms = Devel.getOccupiedRooms();
-
-        for (Room room : rooms) {
-            alert(room.toString() + "\n");
-        }
+        displayRooms(rooms);
     }
 
+    /**
+     * Ask customer values as many times as the capacity given.
+     *
+     * @param capacity the number of times to ask the customer values.
+     * @return a list with the customers or an empty list.
+     */
     private List<Customer> askCustomersValues(int capacity) {
         Scanner sc = new Scanner(System.in);
         List<Customer> customers = new ArrayList<>();

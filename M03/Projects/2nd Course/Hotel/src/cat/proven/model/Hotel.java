@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Hotel {
 
-    private Map<Room, List<Customer>> hotel;
+    private final Map<Room, List<Customer>> hotel;
 
     public Hotel() {
         hotel = new HashMap<>();
