@@ -11,7 +11,7 @@ function darkMode() {
     nav.classList.toggle("navbar-dark");
     nav.classList.toggle("bg-dark");
 
-    // Change dark/light button color
+    // Change dark/light button image
     var changeBtn = document.getElementById("changeColor");
     changeBtn.classList.toggle("bi-moon");
     changeBtn.classList.toggle("bi-brightness-high");
