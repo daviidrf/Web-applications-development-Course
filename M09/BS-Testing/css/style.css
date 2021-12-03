@@ -2,3 +2,22 @@
 
 
 
+
+
+
+
+
+
+/* Size for each screen-size */
+
+@media screen and (min-width: 801px) {
+  p.textoP {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  p.textoP {
+    font-size: 15px;
+  }
+}
