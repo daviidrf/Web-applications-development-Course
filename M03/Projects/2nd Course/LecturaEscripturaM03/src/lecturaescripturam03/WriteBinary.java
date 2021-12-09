@@ -32,7 +32,7 @@ public class WriteBinary {
         File file = new File(filename);
 
         //Write data to file and close file
-        // Instantiate 
+        // Instantiate
 
         //Report result
     }

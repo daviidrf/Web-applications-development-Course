@@ -16,3 +16,8 @@ function darkMode() {
     changeBtn.classList.toggle("bi-moon");
     changeBtn.classList.toggle("bi-brightness-high");
 }
+
+function turnAroundMainImage() {
+    var image = document.getElementById("mainImage");
+    image.classList.toggle("rotate-180");
+}
