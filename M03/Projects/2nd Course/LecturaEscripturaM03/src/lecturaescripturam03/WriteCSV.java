@@ -1,19 +1,18 @@
 package lecturaescripturam03;
 
+import lecturaescripturam03.model.Employee;
+import lecturaescripturam03.model.Staff;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import lecturaescripturam03.model.Employee;
-import lecturaescripturam03.model.Staff;
 
 /**
  *
  * @author David
  */
-public class LecturaEscripturaM03 {
+public class WriteCSV {
 
     /**
      * @param args the command line arguments
