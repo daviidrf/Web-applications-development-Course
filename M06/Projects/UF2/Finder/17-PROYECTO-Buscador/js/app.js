@@ -1,11 +1,3 @@
-// Selectores
-const marca = $("#marca");
-const year = $("#year");
-const minimo = $("#minimo");
-const maximo = $("#maximo");
-const puertas = $("#puertas");
-const transmision = $("#transmision");
-const color = $("#color");
 
 // crear los años
 const max = new Date().getFullYear();
@@ -32,39 +24,39 @@ $(document).ready(function () {
 });
 
 // Event Listeners para el formulario
-$(marca).click('input', e => {
+$("#marca").click('input', e => {
     datosBusqueda.marca = e.target.value;
     filtrarAuto();
 });
 
-$(year).click('input', e => {
+$("#year").click('input', e => {
     datosBusqueda.year = Number(e.target.value);
     filtrarAuto();
 });
 
-$(minimo).click('input', e => {
+$("#minimo").click('input', e => {
     datosBusqueda.minimo = Number(e.target.value);
     filtrarAuto();
 });
 
 
-$(maximo).click('input', e => {
+$("#maximo").click('input', e => {
     datosBusqueda.maximo = Number(e.target.value);
     filtrarAuto();
 });
 
 
-$(puertas).click('input', e => {
+$("#puertas").click('input', e => {
     datosBusqueda.puertas = Number(e.target.value);
     filtrarAuto();
 });
 
-$(transmision).click('input', e => {
+$("#transmision").click('input', e => {
     datosBusqueda.transmision = e.target.value;
     filtrarAuto();
 });
 
-$(color).click('input', e => {
+$("#color").click('input', e => {
     datosBusqueda.color = e.target.value;
     filtrarAuto();
 });
