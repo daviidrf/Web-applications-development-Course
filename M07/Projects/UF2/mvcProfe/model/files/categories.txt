@@ -1,0 +1,5 @@
+Playstation;Games of Playstation;
+Xbox;Games of Xbox;
+PC;Game of PC;
+Switch;Games of Nintendo;
+Linux;Games of Linux;
