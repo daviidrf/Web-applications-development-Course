@@ -11,6 +11,11 @@
             <a href="index.php?menu=user&option=formAdd"> Add a User</a>
         
         </li>
+
+        <li>
+            <a href="index.php?menu=user&option=showLogin"> Login</a>
+        
+        </li>
         
         <!--el resto de opciones-->
 

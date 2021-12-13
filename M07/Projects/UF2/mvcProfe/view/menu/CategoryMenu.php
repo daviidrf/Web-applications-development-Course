@@ -11,6 +11,11 @@
             <a href="index.php?menu=category&option=formAdd"> Add a Category</a>
         
         </li>
+
+        <li>
+            <a href="index.php?menu=category&option=searchCat"> Search a Category</a>
+        
+        </li>
         
         <!--el resto de opciones-->
 

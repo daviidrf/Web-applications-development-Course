@@ -43,6 +43,14 @@ class UserController{
                // $this->formDel();//metodo que muestra el formulario para decir que cate. borrar
                 break;
 
+            case "showLogin":
+                $this->showLogin();
+                break;
+            
+            case "Login":
+                $this->login();
+                break;
+
             default:
                 //enseñar la vista por defecto
                 $this->view->display();
@@ -68,5 +76,22 @@ class UserController{
         $this->view->display("view/form/UserList.php", $users);
         
         //enviar a la vista la lista de las categorias
+    }
+
+    public function showLogin() {
+        $this->view->display("view/form/UserLogin.php");
+    }
+
+    public function login() {
+        if(isset($_POST["action"])) {
+            $userAccepted = $this->model->login($_POST["user"],$_POST["pass"]);
+            if($userAccepted) {
+                include ("view/menu/MainMenu.php");
+            } else {
+                $this->view->display("view/form/UserLogin.php");
+            }
+        }
+       
+
     }
 }

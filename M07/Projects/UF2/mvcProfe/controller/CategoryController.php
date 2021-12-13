@@ -43,6 +43,10 @@ class CategoryController{
                // $this->formDel();//metodo que muestra el formulario para decir que cate. borrar
                 break;
 
+            case "searchCat":
+                $this->searchCat();
+                break;
+
             default:
                 //enseñar la vista por defecto
                 $this->view->display();
@@ -75,5 +79,12 @@ class CategoryController{
         }
         $this->view->display("view/form/CategoryForm.php");
 
+    }
+
+    public function searchCat() {
+        if(isset($_POST["action"])) {
+            $this->model->searchCategory($_POST["name"]);
+        }
+        $this->view->display("view/form/CategorySearch.php");
     }
 }

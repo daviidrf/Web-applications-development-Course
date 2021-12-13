@@ -51,10 +51,23 @@ class CategoryDAO{
 
     //metodo para modificar una categoria
     public function modifyCategory(){
-
+        //TODO
     }
 
+    public function searchCategory($name) {
+        $allCategories = $this->dbConnect->readAllLines();
 
+        foreach($allCategories as $cat){
+            $pieces=explode(";",$cat);
+            $arrayCat[]= $pieces[0];
+        }
+
+        if(in_array($name, $arrayCat)) {
+            echo "This category exists";
+        } else {
+            echo "This category doesn't exist!";
+        }
+    }
 
 
 }

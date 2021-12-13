@@ -53,7 +53,22 @@ class UserDAO{
 
     }
 
+    public function login($user,$pass) {
+        $allUsers = $this->dbConnect->readAllLines();
 
+        $userToValidate = new User($user,$pass);
+
+        foreach($allUsers as $user){
+            $pieces=explode(";",$user);
+            $arrayUsers[]= new User($pieces[0],$pieces[1]);
+        }
+
+        if(in_array($userToValidate, $arrayUsers)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 }
