@@ -35,12 +35,12 @@ class CategoryController{
                 $this->formAdd();//metodo que mostrara el formulario para añadir categoria
                 break;
 
-            case "add":
+            case "Add":
                 $this->add();//metodo que recoje la nueva categ. y me la inserta en el archivo
                 break;
 
-            case "formDel":
-               // $this->formDel();//metodo que muestra el formulario para decir que cate. borrar
+            case "search":
+                $this->searchForm();//metodo que muestra el formulario para decir que cate. borrar
                 break;
 
             case "searchCat":
@@ -69,7 +69,6 @@ class CategoryController{
     }
 
     public function formAdd(){
-
         $this->view->display("view/form/CategoryForm.php");
     }
 
@@ -81,10 +80,15 @@ class CategoryController{
 
     }
 
-    public function searchCat() {
-        if(isset($_POST["action"])) {
-            $this->model->searchCategory($_POST["name"]);
-        }
+    public function searchForm() {
         $this->view->display("view/form/CategorySearch.php");
+    }
+
+    public function searchCat() {
+        //$categorySearched = [];
+        if(isset($_POST["action"])) {
+            $categorySearched = $this->model->searchCategory($_POST["name"]);
+        }
+        $this->view->display("view/form/CategorySearched.php",$categorySearched);
     }
 }

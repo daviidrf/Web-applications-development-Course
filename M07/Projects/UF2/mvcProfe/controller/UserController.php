@@ -51,6 +51,13 @@ class UserController{
                 $this->login();
                 break;
 
+            case "logout":
+               if(isset($_SESSION["login"])){
+                   session_destroy();
+                   header('Location:index.php');
+               }
+                break;
+
             default:
                 //enseñar la vista por defecto
                 $this->view->display();
@@ -86,6 +93,7 @@ class UserController{
         if(isset($_POST["action"])) {
             $userAccepted = $this->model->login($_POST["user"],$_POST["pass"]);
             if($userAccepted) {
+                $_SESSION["login"] = true;
                 include ("view/menu/MainMenu.php");
             } else {
                 $this->view->display("view/form/UserLogin.php");
@@ -94,4 +102,6 @@ class UserController{
        
 
     }
+
+    
 }

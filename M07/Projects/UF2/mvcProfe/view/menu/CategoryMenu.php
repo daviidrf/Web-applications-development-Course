@@ -13,7 +13,7 @@
         </li>
 
         <li>
-            <a href="index.php?menu=category&option=searchCat"> Search a Category</a>
+            <a href="index.php?menu=category&option=search"> Search a Category</a>
         
         </li>
         

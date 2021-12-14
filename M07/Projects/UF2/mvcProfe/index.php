@@ -3,7 +3,7 @@
 //iniciar sesion se hace aqui, siempre 
 //y cuando lo necesite
 
-//session_start();
+session_start();
 
 //llamada a mi primer controlador
 require_once "controller/MainController.php";

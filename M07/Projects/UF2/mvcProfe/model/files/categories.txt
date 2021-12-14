@@ -3,4 +3,4 @@ Xbox;Games of Xbox;
 PC;Game of PC;
 Switch;Games of Nintendo;
 Linux;Games of Linux;
-david;;
+Gameboy;Games of Gameboy;

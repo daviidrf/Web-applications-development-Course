@@ -45,35 +45,43 @@ class CategoryDAO{
     //metodo que servirá para añadir 
     //una categoria al archivo
     public function addCategory($name,$description){
-
-        $this->dbConnect->addNewLine("\n$name;$description;");
-    }
-
-    //metodo para modificar una categoria
-    public function modifyCategory(){
-        //TODO
-    }
-
-    public function searchCategory($name) {
+        $exist = false;
         $allCategories = $this->dbConnect->readAllLines();
 
         foreach($allCategories as $cat){
             $pieces=explode(";",$cat);
-            $arrayCat[]= $pieces[0];
+            $arrayCat[]= new Category($pieces[0],$pieces[1]);
         }
 
-        if(in_array($name, $arrayCat)) {
-            echo "This category exists";
-        } else {
-            echo "This category doesn't exist!";
+        foreach ($arrayCat as $cat) {
+            if($cat->getName() == $name) {
+                $exist = true;
+            } 
         }
+
+        if(!$exist) {
+            $this->dbConnect->addNewLine("\n$name;$description;");
+            echo "Category added";
+        } else {
+            echo "This category already exists";
+        }
+
     }
 
 
+    public function searchCategory($name) {
+        $allCategories = $this->dbConnect->readAllLines();
+
+        if(count($allCategories)>0){
+            foreach($allCategories as $cat){
+                $pieces=explode(";",$cat);
+                if($pieces[0] == $name) {
+                    $categorySearched = new Category($pieces[0],$pieces[1]);
+                    return $categorySearched;
+                }
+            }
+        }
+    }
 }
-
-
-
-
 
 ?>
