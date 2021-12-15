@@ -43,6 +43,10 @@ class UserController{
                // $this->formDel();//metodo que muestra el formulario para decir que cate. borrar
                 break;
 
+            case "delete":
+                //$this->delete();
+                break;
+
             case "showLogin":
                 $this->showLogin();
                 break;

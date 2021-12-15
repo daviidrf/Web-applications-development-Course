@@ -13,10 +13,17 @@
         <li>
             <a href="index.php?menu=user&option=formAdd"> Add a User</a>
         </li>
+        <!--
+        <li>
+            <a href="index.php?menu=user&option=formDelete"> Delete a User</a>
+        </li>
+        -->
         HER;
+        } else {
+            //header("Location:index.php");
         }
         ?>
-        
+
         <!--el resto de opciones-->
 
     </ul>
