@@ -1,0 +1,18 @@
+Videojocs;descripcion videojocs;
+Accessoris;descripcin accessoris;
+PS5;descripcion PS5;
+Xbox series X;descripcion Xbox series X;
+Wii U;descripcion Wii U;
+Nintendo Switch;descripcion Nintendo Switch;
+Gamecube;descripcion Gamecube;
+Sega MegaDrive;descripcion Sega MegaDrive;
+Sega Dreamcast;descripcion Sega Dreamcast;
+Sega Saturn;descripcion Sega Saturn;
+Wii;descripcion Wii;
+Nintendo 3DS;descripcion Nintendo 3DS;
+PSP;descripcion PSP;
+PSVita;descripcion PSVita;
+Videojoc 21;Bla bla;
+catNova;bla bla bla;
+catNova;bla bla bla;
+catNova;bla bla bla;
