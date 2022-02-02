@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f9d4f84-9b70-48dc-8dd8-02a5fe69bff5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/java/proven/friends/controllers/FriendController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/java/proven/friends/model/Friend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/java/proven/friends/model/FriendModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/java/proven/friends/servlets/FriendServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/java/proven/friends/views/FriendMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/java/proven/friends/views/FriendView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/java/proven/friends/views/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/java/proven/friends/views/Option.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/target/classes/proven/friends/controllers/FriendController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/target/classes/proven/friends/model/Friend.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/target/classes/proven/friends/model/FriendModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/target/classes/proven/friends/servlets/FriendServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/target/classes/proven/friends/views/FriendMenu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/target/classes/proven/friends/views/FriendView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/target/classes/proven/friends/views/Menu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../old-api-friends/target/classes/proven/friends/views/Option.class" afterDir="false" />
-    </list>
+    <list default="true" id="1f9d4f84-9b70-48dc-8dd8-02a5fe69bff5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../M03/Projects/2nd Course/RealEstateApp" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -84,6 +55,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
