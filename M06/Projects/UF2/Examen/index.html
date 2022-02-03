@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examen</title>
+    <!-- Jquery -->
+    <script src="vendor/jquery/jquery-3.6.0.min.js"></script>
+    <script src="vendor/jqueryui/jquery-ui.min.js"></script>
+    <!-- Js -->
+    <script src="js/script.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <!-- Css -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div id="principal" class="container">
+        <!-- Form 1 -->
+        <form id="form1" class="mt-5">
+            <h1 class="mb-5">Incidències Empresa S.A.</h1>
+            <div id="selectEspai" class="mb-3"></div>
+            <div class="mb-3">
+                <label class="form-label">Identificador de inventari</label>
+                <input type="text" class="form-control" id="idInv" />
+                <div id="idError"></div>
+            </div>
+            <button type="button" onclick="validateForm1()" class="btn btn-primary">
+                Notifica
+            </button>
+        </form>
+
+
+        <!-- Form 2 -->
+        <form id="form2" class="mt-5">
+            <h1 id="form2title" class="mb-5"></h1>
+            <div class="mb-5">Id. Inventari: <b id="form2id"></b></div>
+
+            <div id="incidentDesc" class="mb-3">
+                <label class="form-label">Descripció de la incidència</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+                <div class="form-text">Escriu una breu descripció</div>
+                <div id="descError"></div>
+            </div>
+            <div id="incidentDate" class="mb-3">
+                <p>Dia en què s'hi va detectar: <br><br><input id="datepick1"></p>
+                <div id="dateError"></div>
+            </div>
+            <div id="incidentPhone" class="mb-3">
+                <label class="form-label">Telèfon de contacte</label>
+                <input type="text" class="form-control" id="phone" placeholder="657249235"/>
+                <div id="phoneError"></div>
+            </div>
+            <div id="incidentMail" class="mb-3">
+                <label class="form-label">Email de contacte</label>
+                <input type="email" class="form-control" id="mail" placeholder="example@domini.com"/>
+                <div id="mailError"></div>
+            </div>
+            <div id="incidentPriority" class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radiobtn1" checked>
+                    <label class="form-check-label">
+                        Baixa
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radiobtn2">
+                    <label class="form-check-label">
+                        Normal
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radiobtn2">
+                    <label class="form-check-label">
+                        Alta
+                    </label>
+                </div>
+                <div id="priorityError"></div>
+            </div>
+
+            <button type="button" id="form2btn" onclick="validateForm2()" class="btn btn-primary" disabled>
+                Envia
+            </button>
+        </form>
+
+
+        <!-- Display Issue -->
+        <div id="issueDisplay">
+            
+        </div>
+    </div>
+</body>
+
+</html>
